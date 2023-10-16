@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f3aa184845f338e428dcd0b35d526988
+guid: 952a9ae103c36f64cb02f26bf0f3d7a0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -129,169 +129,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Scout_0
+      name: Empty_crate
       rect:
         serializedVersion: 2
         x: 0
-        y: 128
-        width: 64
-        height: 64
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed723729cbe1abb4b85a365bdae2c7d9
-      internalID: -775281720
+      spriteID: 63566095384c4e04a8c5b8db6824bbd7
+      internalID: 684377585
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scout_1
+      name: Metal_world_item
       rect:
         serializedVersion: 2
-        x: 64
-        y: 128
-        width: 64
-        height: 64
+        x: 32
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0444a0e88e92b434c881cb1dd00a4f6d
-      internalID: 392294457
+      spriteID: cfa64d4b18eda0c4389e6b4e8cfc3cc1
+      internalID: 2023512362
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scout_2
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f486a886077b8764b9895e279c6050a3
-      internalID: -1919241195
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Scout_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 69a4f3b3961131d45bb45cb388ef022e
-      internalID: 1729145134
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Scout_4
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cee3cdc6eddb79743951fa12bf925b92
-      internalID: -1509819538
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Scout_5
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: af318ad83a8ec8048ad06c307ec57d93
-      internalID: 208677910
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Scout_6
+      name: Metal_box
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 64
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0ffcf4613e973cc40ad3bc0a42dd9fc8
-      internalID: 1316255503
+      spriteID: 9e320b63bcb910140997d2a29544f6a4
+      internalID: 28108231
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scout_7
+      name: Empty_bullet_shells
       rect:
         serializedVersion: 2
-        x: 64
+        x: 32
         y: 0
-        width: 64
-        height: 64
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff395a8bed60678418f4abfc684010cf
-      internalID: -1648820818
+      spriteID: 9d143da022ebe724da2913122c9d79e3
+      internalID: 1361673628
       vertices: []
       indices: 
       edges: []
@@ -307,14 +223,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Scout_6: 1316255503
-      Scout_2: -1919241195
-      Scout_1: 392294457
-      Scout_0: -775281720
-      Scout_7: -1648820818
-      Scout_5: 208677910
-      Scout_3: 1729145134
-      Scout_4: -1509819538
+      Empty_bullet_shells: 1361673628
+      Empty_crate: 684377585
+      Metal_box: 28108231
+      Metal_world_item: 2023512362
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

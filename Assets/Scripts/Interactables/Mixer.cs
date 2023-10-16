@@ -5,6 +5,9 @@ using UnityEngine;
 public class Mixer : Interactable
 {
     private Dictionary<ItemData.ItemType, int> craftingItems;
+    [SerializeField] private Animator anim;
+    [SerializeField] private SpriteRenderer CharcoalLight, NitrateLight, SulfurLight, GunpowderLight;
+    [SerializeField] private Sprite emptyLight, lowLight, mediumLight, fullLight;
     private int outputGunPowder = 0;
     public int maxIngredient = 3;
     
@@ -25,7 +28,8 @@ public class Mixer : Interactable
         if(player.GetHeldItem() == ItemData.ItemType.None){
             if(outputGunPowder > 0){
                 outputGunPowder -= 1;
-                return ItemData.ItemType.GunPowder;
+                updateLights();
+                return ItemData.ItemType.Gunpowder;
             }
         }
         else if(validItem(player.GetHeldItem())){
@@ -33,6 +37,7 @@ public class Mixer : Interactable
                 Debug.Log($"Taking player item: {player.GetHeldItem()}");
                 craftingItems[player.ConsumeItem()] += 1;
                 DebugInventory();
+                updateLights();
             }
         }
         return 0;
@@ -40,6 +45,21 @@ public class Mixer : Interactable
 
     private void DebugInventory(){
         Debug.Log($"Charcoal: {craftingItems[ItemData.ItemType.Charcoal]}, Nitrate: {craftingItems[ItemData.ItemType.Nitrate]}, Sulfur: {craftingItems[ItemData.ItemType.Sulfur]}");
+    }
+
+    private void updateLights(){
+        CharcoalLight.sprite = getLightLevel(craftingItems[ItemData.ItemType.Charcoal], maxIngredient);
+        NitrateLight.sprite = getLightLevel(craftingItems[ItemData.ItemType.Nitrate], maxIngredient);
+        SulfurLight.sprite = getLightLevel(craftingItems[ItemData.ItemType.Sulfur], maxIngredient);
+        GunpowderLight.sprite = getLightLevel(outputGunPowder, maxIngredient);
+    }
+
+    private Sprite getLightLevel(int curr, int max){
+        float percentage = curr / max;
+        if(curr == 0) return emptyLight;
+        if(curr == max) return fullLight;
+        if(percentage < 0.3f) return lowLight;
+        return mediumLight;
     }
 
     private void Update() {
@@ -52,7 +72,7 @@ public class Mixer : Interactable
 
     private bool canCraft(){
         bool c = (craftingItems[ItemData.ItemType.Charcoal] > 0 && craftingItems[ItemData.ItemType.Nitrate] > 0 && craftingItems[ItemData.ItemType.Sulfur] > 0);
-        bool v = outputGunPowder <= 3 && !currentlyCrafting;
+        bool v = outputGunPowder < 3 && !currentlyCrafting;
         return c && v;
     }
 
@@ -66,8 +86,11 @@ public class Mixer : Interactable
 
     private IEnumerator craftGunPowder(){
         currentlyCrafting = true;
+        anim.SetBool("mixing", true);
         yield return new WaitForSeconds(2f);
         currentlyCrafting = false;
+        anim.SetBool("mixing", false);
         outputGunPowder += 1;
+        updateLights();
     }
 }

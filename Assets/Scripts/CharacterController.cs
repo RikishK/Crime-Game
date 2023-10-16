@@ -5,8 +5,8 @@ using UnityEngine;
 public class CharacterController : MonoBehaviour
 {
     private float moveSpeed = 5.0f;
+    [SerializeField] private CharacterHeldItem heldItem;
     private ItemData.ItemType currentItem;
-
     private Rigidbody2D rb;
 
     void Start()
@@ -53,13 +53,17 @@ public class CharacterController : MonoBehaviour
             }
 
             if(targetInteractables.Count == 1){
-                currentItem = targetInteractables[0].Interact(this);
+                holdItem(targetInteractables[0].Interact(this));
                 Debug.Log($"Player has picked up: {currentItem}");
             }
 
         }
     }
 
+    private void holdItem(ItemData.ItemType itemType){
+        currentItem = itemType;
+        heldItem.HoldItem(currentItem);
+    }
     public ItemData.ItemType GetHeldItem(){
         return currentItem;
     }
