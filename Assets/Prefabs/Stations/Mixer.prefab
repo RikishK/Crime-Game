@@ -298,6 +298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 2774628638173510231}
+  stationName: Mixer
   CharcoalLight: {fileID: 3836179775069522069}
   NitrateLight: {fileID: 7174635616768233001}
   SulfurLight: {fileID: 7609717847881735969}
@@ -306,7 +307,6 @@ MonoBehaviour:
   lowLight: {fileID: 1747887046, guid: 7546f15535408a941890b2bb0a68b3c7, type: 3}
   mediumLight: {fileID: 1981914988, guid: 7546f15535408a941890b2bb0a68b3c7, type: 3}
   fullLight: {fileID: 850112669, guid: 7546f15535408a941890b2bb0a68b3c7, type: 3}
-  maxIngredient: 3
 --- !u!95 &2774628638173510231
 Animator:
   serializedVersion: 5

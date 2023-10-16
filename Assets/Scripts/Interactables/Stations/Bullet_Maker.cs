@@ -68,7 +68,7 @@ public class Bullet_Maker : Interactable
     private IEnumerator craftBulletShell(){
         currentlyCrafting = true;
         anim.SetBool("smashing", true);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(5f);
         currentlyCrafting = false;
         anim.SetBool("smashing", false);
         bullet_shell_count += 1;

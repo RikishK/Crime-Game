@@ -9,6 +9,8 @@ public class CharacterController : MonoBehaviour
     private ItemData.ItemType currentItem;
     private Rigidbody2D rb;
 
+    private bool locked = false;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -17,6 +19,10 @@ public class CharacterController : MonoBehaviour
 
     void Update()
     {
+        if(locked){
+            rb.velocity = new Vector2(0f, 0f);
+            return;
+        }
         // Get input from the player
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
@@ -72,5 +78,13 @@ public class CharacterController : MonoBehaviour
         ItemData.ItemType consumedItem = currentItem;
         currentItem = ItemData.ItemType.None;
         return consumedItem;
+    }
+
+    public void LockPlayer(){
+        locked = true;
+    }
+
+    public void UnlockPlayer(){
+        locked = false;
     }
 }
