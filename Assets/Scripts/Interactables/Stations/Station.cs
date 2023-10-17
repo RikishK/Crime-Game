@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.IO.LowLevel.Unsafe;
@@ -10,7 +11,16 @@ public class Station : Interactable
     protected Dictionary<ItemData.ItemType, float> craftedItemsTime;
     [SerializeField] protected Animator anim;
     [SerializeField] protected string stationName;
+    
+    [SerializeField] protected ItemIndicator[] itemIndicators;
 
+    protected Dictionary<ItemData.ItemType, IndicatorLight> itemIndicatorsDictionary;
+
+    [Serializable]
+    protected class ItemIndicator {
+        public IndicatorLight indicatorLight;
+        public ItemData.ItemType item;
+    }
 
     protected bool currentlyCrafting = false;
 
@@ -23,8 +33,16 @@ public class Station : Interactable
         // Setup crafted items time
     }
 
+    protected virtual void SetupItemIndicators(){
+        itemIndicatorsDictionary = new Dictionary<ItemData.ItemType, IndicatorLight>();
+        foreach(ItemIndicator itemIndicator in itemIndicators){
+            itemIndicatorsDictionary.Add(itemIndicator.item, itemIndicator.indicatorLight);
+        }
+    }
+
     private void Start() {
         SetupStation();
+        SetupItemIndicators();
     }
 
     private void Update() {
@@ -51,6 +69,12 @@ public class Station : Interactable
 
     protected virtual void updateLights(){
         Debug.Log("Updating station lights...");
+        foreach(KeyValuePair<ItemData.ItemType, int> ingredientData in ingredients){
+            itemIndicatorsDictionary[ingredientData.Key].updateLight(ingredientData.Value, maxIngredients[ingredientData.Key]);
+        }
+        foreach(KeyValuePair<ItemData.ItemType, int> craftedData in craftedItems){
+            itemIndicatorsDictionary[craftedData.Key].updateLight(craftedData.Value, maxCraftedItems[craftedData.Key]);
+        }
     }
 
     protected virtual bool canCraft(){

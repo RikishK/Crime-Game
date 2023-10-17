@@ -4,22 +4,6 @@ using UnityEngine;
 
 public class Mixer : Station
 {
-    //private Dictionary<ItemData.ItemType, int> craftingItems;
-    //[SerializeField] private Animator anim;
-    [SerializeField] private SpriteRenderer CharcoalLight, NitrateLight, SulfurLight, GunpowderLight;
-    [SerializeField] private Sprite emptyLight, lowLight, mediumLight, fullLight;
-    //private int outputGunPowder = 0;
-    //public int maxIngredient = 3;
-    
-    //private bool currentlyCrafting = false;
-
-    // private void Start() {
-    //     craftingItems = new Dictionary<ItemData.ItemType, int>();
-    //     craftingItems.Add(ItemData.ItemType.Charcoal, 0);
-    //     craftingItems.Add(ItemData.ItemType.Sulfur, 0);
-    //     craftingItems.Add(ItemData.ItemType.Nitrate, 0);
-    // }
-
     protected override void SetupStation()
     {
         // Setup ingredients dictionary
@@ -68,27 +52,11 @@ public class Mixer : Station
         return 0;
     }
 
-    protected override void updateLights(){
-        CharcoalLight.sprite = getLightLevel(ingredients[ItemData.ItemType.Charcoal], maxIngredients[ItemData.ItemType.Charcoal]);
-        NitrateLight.sprite = getLightLevel(ingredients[ItemData.ItemType.Nitrate], maxIngredients[ItemData.ItemType.Nitrate]);
-        SulfurLight.sprite = getLightLevel(ingredients[ItemData.ItemType.Sulfur], maxIngredients[ItemData.ItemType.Sulfur]);
-        GunpowderLight.sprite = getLightLevel(craftedItems[ItemData.ItemType.Gunpowder], maxCraftedItems[ItemData.ItemType.Gunpowder]);
-    }
-
-    private Sprite getLightLevel(int curr, int max){
-        float percentage = curr / max;
-        if(curr == 0) return emptyLight;
-        if(curr == max) return fullLight;
-        if(percentage < 0.3f) return lowLight;
-        return mediumLight;
-    }
-
-    // private void Update() {
-    //     // Sink
-    //     if(!canCraft()) return;
-
-    //     craft();
-        
+    // protected override void updateLights(){
+    //     CharcoalLight.sprite = getLightLevel(ingredients[ItemData.ItemType.Charcoal], maxIngredients[ItemData.ItemType.Charcoal]);
+    //     NitrateLight.sprite = getLightLevel(ingredients[ItemData.ItemType.Nitrate], maxIngredients[ItemData.ItemType.Nitrate]);
+    //     SulfurLight.sprite = getLightLevel(ingredients[ItemData.ItemType.Sulfur], maxIngredients[ItemData.ItemType.Sulfur]);
+    //     GunpowderLight.sprite = getLightLevel(craftedItems[ItemData.ItemType.Gunpowder], maxCraftedItems[ItemData.ItemType.Gunpowder]);
     // }
 
     protected override bool canCraft(){
@@ -104,24 +72,4 @@ public class Mixer : Station
         ingredients[ItemData.ItemType.Sulfur] -= 1;
         StartCoroutine(craftItem(ItemData.ItemType.Gunpowder));
     }
-
-    // private IEnumerator craftGunPowder(){
-    //     currentlyCrafting = true;
-    //     anim.SetBool("mixing", true);
-    //     yield return new WaitForSeconds(7f);
-    //     currentlyCrafting = false;
-    //     anim.SetBool("mixing", false);
-    //     outputGunPowder += 1;
-    //     updateLights();
-    // }
-
-    // protected override IEnumerator craftItem(ItemData.ItemType craftedItemType){
-    //     currentlyCrafting = true;
-    //     anim.SetBool("mixing", true);
-    //     yield return new WaitForSeconds(craftedItemsTime[craftedItemType]);
-    //     currentlyCrafting = false;
-    //     anim.SetBool("mixing", false);
-    //     outputGunPowder += 1;
-    //     updateLights();
-    // }
 }
