@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     private Dictionary<LevelObjective.Objective, int> completedObjectives, reqirementsObjectives;
     [SerializeField] private GameObject crate;
     private int objectiveSummons = 0;
+    private List<GameObject> objectiveGameobjects;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +50,7 @@ public class GameManager : MonoBehaviour
     private void SetupObjectives(){
         completedObjectives = new Dictionary<LevelObjective.Objective, int>();
         reqirementsObjectives = new Dictionary<LevelObjective.Objective, int>();
+        objectiveGameobjects = new List<GameObject>();
         foreach(LevelObjective levelObjective in levelObjectives){
             completedObjectives.Add(levelObjective.objective, 0);
             reqirementsObjectives.Add(levelObjective.objective, levelObjective.count);
@@ -62,9 +64,10 @@ public class GameManager : MonoBehaviour
         float x_shift = objectiveSummons % objectiveSlotsWidth;
         float y_shift = objectiveSummons / objectiveSlotsWidth;
         summon_position.x += x_shift;
-        summon_position.y += y_shift;
+        summon_position.y += y_shift * -1f;
         GameObject levelObjective = Instantiate(ObjectivePrefab(objective), summon_position, Quaternion.identity);
         objectiveSummons++;
+        objectiveGameobjects.Add(levelObjective);
     }
 
     private GameObject ObjectivePrefab(LevelObjective.Objective objective){

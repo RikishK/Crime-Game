@@ -3484,7 +3484,7 @@ MonoBehaviour:
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
   levelTimeLimit: 90
-  startObjectiveLocation: {x: -12, y: 0, z: 0}
+  startObjectiveLocation: {x: -12, y: 1, z: 0}
   objectiveSlotsWidth: 3
   levelObjectives:
   - objective: 0
