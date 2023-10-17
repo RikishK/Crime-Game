@@ -12,7 +12,7 @@ public class IndicatorLight : MonoBehaviour
     }
     private Sprite getLightLevel(int curr, int max){
         float percentage = (float)curr / (float)max;
-        Debug.Log($"{percentage}%");
+        //Debug.Log($"{percentage}%");
         if(curr == 0) return emptyLight;
         if(curr == max) return fullLight;
         if(percentage < 0.4f) return lowLight;

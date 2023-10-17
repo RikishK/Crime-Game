@@ -12,37 +12,60 @@ public class Station : Interactable
     [SerializeField] protected Animator anim;
     [SerializeField] protected string stationName;
     
-    [SerializeField] protected ItemIndicator[] itemIndicators;
+    [SerializeField] protected StationItemSlot[] stationItemSlots;
 
     protected Dictionary<ItemData.ItemType, IndicatorLight> itemIndicatorsDictionary;
 
     [Serializable]
-    protected class ItemIndicator {
+    protected class StationItemSlot {
         public IndicatorLight indicatorLight;
         public ItemData.ItemType item;
+        public SlotType slotType;
+
+        public int maxItem;
+        public float craftTimer = 0f;
+
+    }
+
+    [Serializable]
+    protected enum SlotType {
+        Input, Output
     }
 
     protected bool currentlyCrafting = false;
 
     protected virtual void SetupStation(){
-        Debug.Log("Setting up a station...");
+        Debug.Log($"Setting up a station {name}");
         // Setup Ingredients
         // Setup max Ingredients
         // Setup crafted items
         // Setup max crafted items
         // Setup crafted items time
-    }
-
-    protected virtual void SetupItemIndicators(){
+        ingredients = new Dictionary<ItemData.ItemType, int>();
+        maxIngredients = new Dictionary<ItemData.ItemType, int>();
+        craftedItems = new Dictionary<ItemData.ItemType, int>();
+        maxCraftedItems = new Dictionary<ItemData.ItemType, int>();
+        craftedItemsTime = new Dictionary<ItemData.ItemType, float>();
         itemIndicatorsDictionary = new Dictionary<ItemData.ItemType, IndicatorLight>();
-        foreach(ItemIndicator itemIndicator in itemIndicators){
-            itemIndicatorsDictionary.Add(itemIndicator.item, itemIndicator.indicatorLight);
+        
+        foreach(StationItemSlot itemSlot in stationItemSlots){
+            itemIndicatorsDictionary.Add(itemSlot.item, itemSlot.indicatorLight);
+            if(itemSlot.slotType == SlotType.Input){
+                ingredients.Add(itemSlot.item, 0);
+                maxIngredients.Add(itemSlot.item, itemSlot.maxItem);
+            }
+            else if(itemSlot.slotType == SlotType.Output){
+                craftedItems.Add(itemSlot.item, 0);
+                maxCraftedItems.Add(itemSlot.item, itemSlot.maxItem);
+                craftedItemsTime.Add(itemSlot.item, itemSlot.craftTimer);
+            }
         }
+        DebugInventory();
+
     }
 
     private void Start() {
         SetupStation();
-        SetupItemIndicators();
     }
 
     private void Update() {
@@ -64,7 +87,12 @@ public class Station : Interactable
         foreach(KeyValuePair<ItemData.ItemType, int> pair in ingredients){
             Debug.Log(pair);
         }
-        Debug.Log("---------------");
+        Debug.Log("-----------------------------------------");
+        foreach(KeyValuePair<ItemData.ItemType, int> pair in craftedItems){
+            Debug.Log(pair);
+        }
+        Debug.Log("=========================================");
+
     }
 
     protected virtual void updateLights(){
