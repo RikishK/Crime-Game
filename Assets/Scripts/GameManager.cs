@@ -20,7 +20,10 @@ public class GameManager : MonoBehaviour
     private Dictionary<LevelObjective.Objective, int> completedObjectives, reqirementsObjectives;
     [SerializeField] private GameObject crate;
     private int objectiveSummons = 0;
-    private List<GameObject> objectiveGameobjects;
+    private List<ObjectiveStatus> objectStatuses;
+    private int score;
+    private float bonus_time = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,9 +36,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timeLeft = levelTimeLimit - Time.time;
+        timeLeft = levelTimeLimit + bonus_time - Time.time;
         levelTimerBar.value = timeLeft;
         timerBarFill.color = timerBarGradient.Evaluate(timeLeft/levelTimeLimit);
+        if (timeLeft <= 0) TimeUp();
     }
 
     [Serializable]
@@ -50,7 +54,7 @@ public class GameManager : MonoBehaviour
     private void SetupObjectives(){
         completedObjectives = new Dictionary<LevelObjective.Objective, int>();
         reqirementsObjectives = new Dictionary<LevelObjective.Objective, int>();
-        objectiveGameobjects = new List<GameObject>();
+        objectStatuses = new List<ObjectiveStatus>();
         foreach(LevelObjective levelObjective in levelObjectives){
             completedObjectives.Add(levelObjective.objective, 0);
             reqirementsObjectives.Add(levelObjective.objective, levelObjective.count);
@@ -66,12 +70,29 @@ public class GameManager : MonoBehaviour
         summon_position.x += x_shift;
         summon_position.y += y_shift * -1f;
         GameObject levelObjective = Instantiate(ObjectivePrefab(objective), summon_position, Quaternion.identity);
+        ObjectiveStatus objectiveStatus = levelObjective.GetComponent<ObjectiveStatus>();
+        objectiveStatus.gameManager = this;
+        objectStatuses.Add(objectiveStatus);
         objectiveSummons++;
-        objectiveGameobjects.Add(levelObjective);
     }
 
     private GameObject ObjectivePrefab(LevelObjective.Objective objective){
         if(objective == LevelObjective.Objective.Ammo_Crate) return crate;
         return null;
+    }
+
+    public void CompleteObjective(ObjectiveStatus objectiveStatus){
+        score += objectiveStatus.points;
+        bonus_time += objectiveStatus.time_value;
+        CheckFinished();
+    }
+
+    private void CheckFinished(){
+        // Check if all objectives are done 
+    }
+
+    private void TimeUp(){
+        Debug.Log("Times up");
+        
     }
 }

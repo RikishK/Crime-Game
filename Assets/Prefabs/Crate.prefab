@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1672763125127342892}
   - component: {fileID: 8910817635148483582}
   - component: {fileID: 7900385207730528849}
+  - component: {fileID: 5267081386101347554}
   m_Layer: 0
   m_Name: Crate
   m_TagString: Interactable
@@ -103,6 +104,7 @@ MonoBehaviour:
   empty_bullet_crate: {fileID: 190790558, guid: babadddd50cbaf642a0fee615f38b25f, type: 3}
   loaded_bullet_crate: {fileID: 774930537, guid: babadddd50cbaf642a0fee615f38b25f, type: 3}
   packaged_crate: {fileID: 1840071789, guid: babadddd50cbaf642a0fee615f38b25f, type: 3}
+  objectiveStatus: {fileID: 5267081386101347554}
 --- !u!61 &7900385207730528849
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -129,3 +131,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &5267081386101347554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3153921821506940276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5b4a1a998f6a744f9d75836da723188, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  completed: 0
+  points: 50
+  time_value: 15

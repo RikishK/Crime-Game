@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2353871317810908246}
   - component: {fileID: 9087800664046543544}
-  - component: {fileID: 3015126411656034707}
   - component: {fileID: 769186384843190358}
+  - component: {fileID: 3698915742453456914}
   m_Layer: 0
-  m_Name: Metal_box
+  m_Name: Metal box Upgradeable
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86,19 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3015126411656034707
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 850765632158359805}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34af9207042eca24f9ad2b4a6e88031d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  resource: 5
 --- !u!61 &769186384843190358
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -125,3 +112,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &3698915742453456914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 850765632158359805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5ee30ebcd2913f49b14fa4098f8ed3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 0}
+  upgradeable_name: Metal Box

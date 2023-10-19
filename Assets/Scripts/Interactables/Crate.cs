@@ -7,6 +7,7 @@ public class Crate : Interactable
     private CrateState crateState = CrateState.Empty;
     [SerializeField] private SpriteRenderer crateRenderer;
     [SerializeField] private Sprite emptyCrate, empty_bullet_crate, loaded_bullet_crate, packaged_crate;
+    [SerializeField] ObjectiveStatus objectiveStatus;
     private enum CrateState {
         Empty, Empty_Bullet_Shell, Loaded_Bullet_Shell, Packaged
     }
@@ -58,6 +59,7 @@ public class Crate : Interactable
         player.UnlockPlayer();
         crateState = CrateState.Packaged;
         RenderCrate();
+        objectiveStatus.Complete();
     }
 
     private void RenderCrate(){
