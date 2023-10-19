@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f3aa184845f338e428dcd0b35d526988
+guid: 18c032815fd4b184ab8604cc9d715c77
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 128
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -129,169 +129,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Scout_0
+      name: Background
       rect:
         serializedVersion: 2
         x: 0
         y: 128
-        width: 64
-        height: 64
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed723729cbe1abb4b85a365bdae2c7d9
-      internalID: -775281720
+      spriteID: bddab0928fd921641a8117192fa0d281
+      internalID: 925419168
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scout_1
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0444a0e88e92b434c881cb1dd00a4f6d
-      internalID: 392294457
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Scout_2
+      name: Upgraded Slot
       rect:
         serializedVersion: 2
         x: 128
         y: 128
-        width: 64
-        height: 64
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f486a886077b8764b9895e279c6050a3
-      internalID: -1919241195
+      spriteID: 02d5c9c4fd629974eb4b07e8dd78fc83
+      internalID: -57279308
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scout_3
+      name: upgradeable slot
       rect:
         serializedVersion: 2
         x: 0
-        y: 64
-        width: 64
-        height: 64
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69a4f3b3961131d45bb45cb388ef022e
-      internalID: 1729145134
+      spriteID: 8e81402e2526b0b45a42f6199bcfe5b6
+      internalID: 798081842
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scout_4
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cee3cdc6eddb79743951fa12bf925b92
-      internalID: -1509819538
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Scout_5
+      name: cost box
       rect:
         serializedVersion: 2
         x: 128
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: af318ad83a8ec8048ad06c307ec57d93
-      internalID: 208677910
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Scout_6
-      rect:
-        serializedVersion: 2
-        x: 0
         y: 0
-        width: 64
-        height: 64
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0ffcf4613e973cc40ad3bc0a42dd9fc8
-      internalID: 1316255503
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Scout_7
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ff395a8bed60678418f4abfc684010cf
-      internalID: -1648820818
+      spriteID: 8fbd2c30c0208a14580b11b22b324ca3
+      internalID: 1764471871
       vertices: []
       indices: 
       edges: []
@@ -307,14 +223,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Scout_6: 1316255503
-      Scout_2: -1919241195
-      Scout_1: 392294457
-      Scout_0: -775281720
-      Scout_7: -1648820818
-      Scout_5: 208677910
-      Scout_3: 1729145134
-      Scout_4: -1509819538
+      upgradeable slot: 798081842
+      cost box: 1764471871
+      Background: 925419168
+      Upgraded Slot: -57279308
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -5,9 +5,11 @@ using UnityEngine;
 public class CharacterController : MonoBehaviour
 {
     private float moveSpeed = 5.0f;
+    [SerializeField] private CharacterHeldItem heldItem;
     private ItemData.ItemType currentItem;
-
     private Rigidbody2D rb;
+
+    private bool locked = false;
 
     void Start()
     {
@@ -17,6 +19,10 @@ public class CharacterController : MonoBehaviour
 
     void Update()
     {
+        if(locked){
+            rb.velocity = new Vector2(0f, 0f);
+            return;
+        }
         // Get input from the player
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
@@ -53,13 +59,17 @@ public class CharacterController : MonoBehaviour
             }
 
             if(targetInteractables.Count == 1){
-                currentItem = targetInteractables[0].Interact(this);
+                holdItem(targetInteractables[0].Interact(this));
                 Debug.Log($"Player has picked up: {currentItem}");
             }
 
         }
     }
 
+    private void holdItem(ItemData.ItemType itemType){
+        currentItem = itemType;
+        heldItem.HoldItem(currentItem);
+    }
     public ItemData.ItemType GetHeldItem(){
         return currentItem;
     }
@@ -68,5 +78,13 @@ public class CharacterController : MonoBehaviour
         ItemData.ItemType consumedItem = currentItem;
         currentItem = ItemData.ItemType.None;
         return consumedItem;
+    }
+
+    public void LockPlayer(){
+        locked = true;
+    }
+
+    public void UnlockPlayer(){
+        locked = false;
     }
 }
