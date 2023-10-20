@@ -22,9 +22,6 @@ public class Station : Interactable
         public ItemData.ItemType item;
         public SlotType slotType;
 
-        public int maxItem;
-        public float craftTimer = 0f;
-
     }
 
     [Serializable]
@@ -52,16 +49,34 @@ public class Station : Interactable
             itemIndicatorsDictionary.Add(itemSlot.item, itemSlot.indicatorLight);
             if(itemSlot.slotType == SlotType.Input){
                 ingredients.Add(itemSlot.item, 0);
-                maxIngredients.Add(itemSlot.item, itemSlot.maxItem);
+                maxIngredients.Add(itemSlot.item, StationIngredientMax());
             }
             else if(itemSlot.slotType == SlotType.Output){
                 craftedItems.Add(itemSlot.item, 0);
-                maxCraftedItems.Add(itemSlot.item, itemSlot.maxItem);
-                craftedItemsTime.Add(itemSlot.item, itemSlot.craftTimer);
+                maxCraftedItems.Add(itemSlot.item, StationCraftedMax());
+                craftedItemsTime.Add(itemSlot.item, StationCraftTime());
             }
         }
         DebugInventory();
 
+    }
+
+    protected virtual int StationIngredientMax()
+    {
+        int upgrades_done = UpgradeablesData.bullet_maker_upgradeable.GetUpgradeData("Ingredient Limit").upgrades_done;
+        return 3 + 2*upgrades_done;
+    }
+
+    protected virtual int StationCraftedMax()
+    {
+        int upgrades_done = UpgradeablesData.bullet_maker_upgradeable.GetUpgradeData("Output Limit").upgrades_done;
+        return 3 + 2*upgrades_done;
+    }
+
+    protected virtual float StationCraftTime()
+    {
+        float upgrades_done = UpgradeablesData.bullet_maker_upgradeable.GetUpgradeData("Output Limit").upgrades_done;
+        return 7f - 1f*upgrades_done;
     }
 
     private void Start() {

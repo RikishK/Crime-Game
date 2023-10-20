@@ -1,24 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class LevelStart : MonoBehaviour
+public class LevelSelectManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
+    public void LevelStart(){
         // Setup mixer upgradeable data
         UpgradeablesData.mixer_upgradeable = SetupStation("mixer");
+
+        // Setup bullet_maker upgradeable data
+        UpgradeablesData.bullet_maker_upgradeable = SetupStation("bullet_maker");
 
         // Setup player upgradeable data
         UpgradeablesData.player_upgradeable = SetupPlayer();
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        SceneManager.LoadScene("PlayScene", LoadSceneMode.Single);
     }
 
     private UpgradeablesData.Upgradeable SetupStation(string station_name){
