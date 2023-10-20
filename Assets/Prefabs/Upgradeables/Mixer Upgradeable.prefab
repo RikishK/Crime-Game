@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3493668358206686863}
   - component: {fileID: 2774628638173510231}
   - component: {fileID: 1237787041779005919}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Mixer Upgradeable
   m_TagString: Interactable
   m_Icon: {fileID: 0}
@@ -145,5 +145,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b469f9c911ab974ea2fd46c6b298aa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 2774628638173510231}
   upgradeable_name: Mixer
