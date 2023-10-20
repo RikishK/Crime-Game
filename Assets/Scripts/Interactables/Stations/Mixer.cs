@@ -8,8 +8,8 @@ public class Mixer : Station
         Debug.Log($"Interacting with Mixer");
         ItemData.ItemType heldItem = player.GetHeldItem();
         if(heldItem == ItemData.ItemType.None){
-            if(base.craftedItems[ItemData.ItemType.Gunpowder] > 0){
-                base.craftedItems[ItemData.ItemType.Gunpowder] -= 1;
+            if(craftedItems[ItemData.ItemType.Gunpowder] > 0){
+                craftedItems[ItemData.ItemType.Gunpowder] -= 1;
                 updateLights();
                 return ItemData.ItemType.Gunpowder;
             }
