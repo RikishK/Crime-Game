@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8863773571059040044}
   - component: {fileID: 8863773571059040047}
   - component: {fileID: 8863773571059040040}
-  - component: {fileID: 3707995366722654728}
+  - component: {fileID: 7571337024880049476}
   m_Layer: 7
   m_Name: Player Upgradeable
   m_TagString: Player
@@ -146,7 +146,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &3707995366722654728
+--- !u!114 &7571337024880049476
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -155,10 +155,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8863773571059040034}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5ee30ebcd2913f49b14fa4098f8ed3c, type: 3}
+  m_Script: {fileID: 11500000, guid: e446c0a5a4d3307409746cb54b35c3c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
   upgradeable_name: Player
 --- !u!1 &8989636769427349374
 GameObject:
