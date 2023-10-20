@@ -9,19 +9,25 @@ public class UpgradeUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI nameText, buttonText;
     [SerializeField] private HorizontalLayoutGroup upgradeIndicatorsLayout;
-    [SerializeField] private GameObject upgradedIndicator, availableUpgradeIndicator;
+    [SerializeField] private Sprite upgradedIndicator, availableUpgradeIndicator;
+    [SerializeField] private GameObject[] upgradeIndicatorSlots;
     
     public void Setup(UpgradeablesData.UpgradeData upgradeData){
         nameText.text = upgradeData.upgrade_name;
         buttonText.text = $"${upgradeData.upgrade_cost.ToString()}";
-        for(int i=0; i<upgradeData.total_upgrades; i++){
+        for(int i=0; i<6; i++){
+            if (i >= upgradeData.total_upgrades){
+                upgradeIndicatorSlots[i].SetActive(false);
+                continue;
+            }
+            
+            upgradeIndicatorSlots[i].SetActive(true);
+
             if (i< upgradeData.upgrades_done){
-                GameObject upgraded_indicator = Instantiate(upgradedIndicator);
-                upgraded_indicator.transform.SetParent(upgradeIndicatorsLayout.transform, false);
+                upgradeIndicatorSlots[i].GetComponentInChildren<Image>().sprite = upgradedIndicator;
             }
             else{
-                GameObject available_upgrade_indicator = Instantiate(availableUpgradeIndicator);
-                available_upgrade_indicator.transform.SetParent(upgradeIndicatorsLayout.transform, false);
+                upgradeIndicatorSlots[i].GetComponentInChildren<Image>().sprite = availableUpgradeIndicator;
             }
         }
 
