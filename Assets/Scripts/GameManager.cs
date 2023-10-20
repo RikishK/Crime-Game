@@ -5,6 +5,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -93,6 +94,7 @@ public class GameManager : MonoBehaviour
 
     private void TimeUp(){
         Debug.Log("Times up");
+        SceneManager.LoadScene("LevelFinishScene", LoadSceneMode.Single);
         
     }
 }
