@@ -5,11 +5,20 @@ using UnityEngine;
 public static class UpgradeablesData
 {
     public static Upgradeable mixer_upgradeable;
+    public static Upgradeable bullet_maker_upgradeable;
+
     public static Upgradeable player_upgradeable;
 
     public class Upgradeable {
         public string upgradeable_name;
         public List<UpgradeData> upgradesData; 
+
+        public UpgradeData GetUpgradeData(string upgrade_name){
+            foreach(UpgradeData upgradeData in upgradesData){
+                if(upgradeData.upgrade_name == upgrade_name) return upgradeData;
+            }
+            return null;
+        }
     }
     public class UpgradeData {
         public string upgrade_name;
@@ -24,4 +33,5 @@ public static class UpgradeablesData
             this.upgrade_cost = upgrade_cost;
         }
     }
+
 }

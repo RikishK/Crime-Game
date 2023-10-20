@@ -38,4 +38,22 @@ public class Mixer : Station
         ingredients[ItemData.ItemType.Sulfur] -= 1;
         StartCoroutine(craftItem(ItemData.ItemType.Gunpowder));
     }
+
+    protected override int StationIngredientMax()
+    {
+        int upgrades_done = UpgradeablesData.mixer_upgradeable.GetUpgradeData("Ingredient Limit").upgrades_done;
+        return 3 + 2*upgrades_done;
+    }
+
+    protected override int StationCraftedMax()
+    {
+        int upgrades_done = UpgradeablesData.mixer_upgradeable.GetUpgradeData("Output Limit").upgrades_done;
+        return 3 + 2*upgrades_done;
+    }
+
+    protected override float StationCraftTime()
+    {
+        float upgrades_done = UpgradeablesData.mixer_upgradeable.GetUpgradeData("Output Limit").upgrades_done;
+        return 7f - 1f*upgrades_done;
+    }
 }
