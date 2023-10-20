@@ -5,6 +5,7 @@ using UnityEngine;
 public static class UpgradeablesData
 {
     public static Upgradeable mixer_upgradeable;
+    public static Upgradeable player_upgradeable;
 
     public class Upgradeable {
         public string upgradeable_name;

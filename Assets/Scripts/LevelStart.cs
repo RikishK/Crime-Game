@@ -8,18 +8,10 @@ public class LevelStart : MonoBehaviour
     void Start()
     {
         // Setup mixer upgradeable data
-        Debug.Log("Setting up mixer data");
-        UpgradeablesData.Upgradeable mixer_upgradeable = new UpgradeablesData.Upgradeable();
-        mixer_upgradeable.upgradeable_name = "Mixer";
-        List<UpgradeablesData.UpgradeData> mixer_upgrades = new List<UpgradeablesData.UpgradeData>();
-        UpgradeablesData.UpgradeData mixer_intake_upgrade = new UpgradeablesData.UpgradeData("Ingredient Limit", 0, 4, 100);
-        UpgradeablesData.UpgradeData mixer_output_upgrade = new UpgradeablesData.UpgradeData("Output Limit", 0, 4, 100);
-        UpgradeablesData.UpgradeData mixer_crafting_speed = new UpgradeablesData.UpgradeData("Crafting Speed", 0, 4, 100);
-        mixer_upgrades.Add(mixer_intake_upgrade);
-        mixer_upgrades.Add(mixer_output_upgrade);
-        mixer_upgrades.Add(mixer_crafting_speed);
-        mixer_upgradeable.upgradesData = mixer_upgrades;
-        UpgradeablesData.mixer_upgradeable = mixer_upgradeable;
+        UpgradeablesData.mixer_upgradeable = SetupStation("mixer");
+
+        // Setup player upgradeable data
+        UpgradeablesData.player_upgradeable = SetupPlayer();
 
     }
 
@@ -27,5 +19,35 @@ public class LevelStart : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private UpgradeablesData.Upgradeable SetupStation(string station_name){
+        Debug.Log($"Setting up {station_name} data");
+        UpgradeablesData.Upgradeable station_upgradeable = new UpgradeablesData.Upgradeable();
+        station_upgradeable.upgradeable_name = station_name;
+        List<UpgradeablesData.UpgradeData> station_upgrades = new List<UpgradeablesData.UpgradeData>();
+        UpgradeablesData.UpgradeData station_intake_upgrade = new UpgradeablesData.UpgradeData("Ingredient Limit", 0, 4, 100);
+        UpgradeablesData.UpgradeData station_output_upgrade = new UpgradeablesData.UpgradeData("Output Limit", 0, 4, 100);
+        UpgradeablesData.UpgradeData station_crafting_speed = new UpgradeablesData.UpgradeData("Crafting Speed", 0, 4, 100);
+        station_upgrades.Add(station_intake_upgrade);
+        station_upgrades.Add(station_output_upgrade);
+        station_upgrades.Add(station_crafting_speed);
+        station_upgradeable.upgradesData = station_upgrades;
+        return station_upgradeable;
+    }
+
+    private UpgradeablesData.Upgradeable SetupPlayer(string player_name = "player"){
+        Debug.Log($"Setting up {player_name} data");
+        UpgradeablesData.Upgradeable player_upgradeable = new UpgradeablesData.Upgradeable();
+        player_upgradeable.upgradeable_name = player_name;
+        List<UpgradeablesData.UpgradeData> player_upgrades = new List<UpgradeablesData.UpgradeData>();
+        UpgradeablesData.UpgradeData player_speed_upgrade = new UpgradeablesData.UpgradeData("Move Speed", 0, 4, 100);
+        UpgradeablesData.UpgradeData player_carry_capacity_upgrade = new UpgradeablesData.UpgradeData("Carry Capacity", 0, 4, 100);
+        UpgradeablesData.UpgradeData player_package_speed_upgrade = new UpgradeablesData.UpgradeData("Package Speed", 0, 4, 100);
+        player_upgrades.Add(player_speed_upgrade);
+        player_upgrades.Add(player_carry_capacity_upgrade);
+        player_upgrades.Add(player_package_speed_upgrade);
+        player_upgradeable.upgradesData = player_upgrades;
+        return player_upgradeable;
     }
 }
