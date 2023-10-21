@@ -1,0 +1,28 @@
+{
+    "levelObjectiveList": [
+        {
+            "objectives": [
+                {
+                    "objective": "Ammo_Crate",
+                    "count": 2
+                }
+            ]
+        },
+        {
+            "objectives": [
+                {
+                    "objective": "Ammo_Crate",
+                    "count": 4
+                }
+            ]
+        },
+        {
+            "objectives": [
+                {
+                    "objective": "Ammo_Crate",
+                    "count": 6
+                }
+            ]
+        }
+    ]
+}

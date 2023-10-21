@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelSelectManager : MonoBehaviour
 {
+    [SerializeField] TextAsset levelsJsonFile;
     public void LevelStart(){
         // Setup mixer upgradeable data
         UpgradeablesData.mixer_upgradeable = SetupStation("mixer");
@@ -14,6 +15,11 @@ public class LevelSelectManager : MonoBehaviour
 
         // Setup player upgradeable data
         UpgradeablesData.player_upgradeable = SetupPlayer();
+
+        // Setup Level Data
+        GameDetails.levelObjectivesData = new LevelObjectivesData();
+        GameDetails.levelObjectivesData.ReadLevels(levelsJsonFile);
+
 
         SceneManager.LoadScene("PlayScene", LoadSceneMode.Single);
     }

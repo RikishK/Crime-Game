@@ -17,8 +17,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Vector3 startObjectiveLocation;
     [SerializeField] private int objectiveSlotsWidth;
 
-    [SerializeField] private LevelObjective[] levelObjectives;
-    private Dictionary<LevelObjective.Objective, int> completedObjectives, reqirementsObjectives;
+    //private LevelObjectivesData.LevelObjective[] levelObjectives;
+    //private Dictionary<LevelObjectivesData.LevelObjective.Objective, int> completedObjectives, reqirementsObjectives;
+    
     [SerializeField] private GameObject crate;
     private int objectiveSummons = 0;
     private List<ObjectiveStatus> objectStatuses;
@@ -43,27 +44,36 @@ public class GameManager : MonoBehaviour
         if (timeLeft <= 0) TimeUp();
     }
 
-    [Serializable]
-    private class LevelObjective {
-        public Objective objective;
-        public int count;
-        public enum Objective{
-            Ammo_Crate
-        }
-    }
+    // [Serializable]
+    // private class LevelObjective {
+    //     public Objective objective;
+    //     public int count;
+    //     public enum Objective{
+    //         Ammo_Crate
+    //     }
+    // }
 
     private void SetupObjectives(){
-        completedObjectives = new Dictionary<LevelObjective.Objective, int>();
-        reqirementsObjectives = new Dictionary<LevelObjective.Objective, int>();
+        GameDetails.levelObjectivesData.completedObjectives = new Dictionary<LevelObjectivesData.Objective, int>();
+        GameDetails.levelObjectivesData.reqirementsObjectives = new Dictionary<LevelObjectivesData.Objective, int>();
         objectStatuses = new List<ObjectiveStatus>();
-        foreach(LevelObjective levelObjective in levelObjectives){
-            completedObjectives.Add(levelObjective.objective, 0);
-            reqirementsObjectives.Add(levelObjective.objective, levelObjective.count);
+        // foreach(LevelObjectivesData.LevelObjective levelObjective in levelObjectives){
+        //     completedObjectives.Add(levelObjective.objective, 0);
+        //     reqirementsObjectives.Add(levelObjective.objective, levelObjective.count);
+        //     for(int i=0; i<levelObjective.count; i++) SummonObjective(levelObjective.objective);
+        // }
+        foreach(LevelObjectivesData.LevelObjective levelObjective in GetLevelObjectives()){
+            GameDetails.levelObjectivesData.completedObjectives.Add(levelObjective.objective, 0);
+            GameDetails.levelObjectivesData.reqirementsObjectives.Add(levelObjective.objective, levelObjective.count);
             for(int i=0; i<levelObjective.count; i++) SummonObjective(levelObjective.objective);
         }
     }
 
-    private void SummonObjective(LevelObjective.Objective objective){
+    private LevelObjectivesData.LevelObjective[] GetLevelObjectives(){
+        return GameDetails.levelObjectivesData.levels.levelObjectiveList[GameDetails.current_level].objectives;
+    }
+
+    private void SummonObjective(LevelObjectivesData.Objective objective){
         // Summon an objective in a world location at correct slot based on objectiveSummons
         Vector3 summon_position = startObjectiveLocation;
         float x_shift = objectiveSummons % objectiveSlotsWidth;
@@ -73,18 +83,20 @@ public class GameManager : MonoBehaviour
         GameObject levelObjective = Instantiate(ObjectivePrefab(objective), summon_position, Quaternion.identity);
         ObjectiveStatus objectiveStatus = levelObjective.GetComponent<ObjectiveStatus>();
         objectiveStatus.gameManager = this;
+        objectiveStatus.objective = objective;
         objectStatuses.Add(objectiveStatus);
         objectiveSummons++;
     }
 
-    private GameObject ObjectivePrefab(LevelObjective.Objective objective){
-        if(objective == LevelObjective.Objective.Ammo_Crate) return crate;
+    private GameObject ObjectivePrefab(LevelObjectivesData.Objective objective){
+        if(objective == LevelObjectivesData.Objective.Ammo_Crate) return crate;
         return null;
     }
 
     public void CompleteObjective(ObjectiveStatus objectiveStatus){
         score += objectiveStatus.points;
         bonus_time += objectiveStatus.time_value;
+        GameDetails.levelObjectivesData.completedObjectives[objectiveStatus.objective]++;
         CheckFinished();
     }
 

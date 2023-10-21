@@ -7,6 +7,8 @@ public class ObjectiveStatus : MonoBehaviour
     public bool completed = false;
     public int points;
     public float time_value;
+
+    public LevelObjectivesData.Objective objective;
     public GameManager gameManager;
 
     public void Complete(){
