@@ -32,6 +32,10 @@ public static class UpgradeablesData
             this.total_upgrades = total_upgrades;
             this.upgrade_cost = upgrade_cost;
         }
+
+        public int Cost(){
+            return upgrade_cost * (upgrades_done + 1);
+        }
     }
 
 }

@@ -758,6 +758,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a68533bf23ff2f4292d75fa86f1fc1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelsJsonFile: {fileID: 4900000, guid: 671260fbb914b4f4ea90149a4f86a0fe, type: 3}
 --- !u!4 &2034557207
 Transform:
   m_ObjectHideFlags: 0

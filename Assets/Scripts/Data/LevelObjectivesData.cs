@@ -34,4 +34,20 @@ public class LevelObjectivesData
         foreach(LevelObjectiveList list in levels.levelObjectiveList)
         Debug.Log("-----------------------");
     }
+
+    public int ObjectivesComplete(){
+        int total = 0;
+        foreach(KeyValuePair<Objective, int> obj in completedObjectives){
+            total += obj.Value;
+        }
+        return total;
+    }
+
+    public int ObjectivesTotal(){
+        int total = 0;
+        foreach(KeyValuePair<Objective, int> obj in reqirementsObjectives){
+            total += obj.Value;
+        }
+        return total;
+    }
 }

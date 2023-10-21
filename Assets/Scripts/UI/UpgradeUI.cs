@@ -11,10 +11,14 @@ public class UpgradeUI : MonoBehaviour
     [SerializeField] private HorizontalLayoutGroup upgradeIndicatorsLayout;
     [SerializeField] private Sprite upgradedIndicator, availableUpgradeIndicator;
     [SerializeField] private GameObject[] upgradeIndicatorSlots;
+
+    private UpgradeablesData.UpgradeData myUpgradeData;
     
     public void Setup(UpgradeablesData.UpgradeData upgradeData){
         nameText.text = upgradeData.upgrade_name;
-        buttonText.text = $"${upgradeData.upgrade_cost.ToString()}";
+        int cost = upgradeData.Cost();
+        buttonText.text = $"${cost.ToString()}";
+        myUpgradeData = upgradeData;
         for(int i=0; i<6; i++){
             if (i >= upgradeData.total_upgrades){
                 upgradeIndicatorSlots[i].SetActive(false);
@@ -36,5 +40,7 @@ public class UpgradeUI : MonoBehaviour
     public void BuyUpgrade(){
         LevelFinishManager levelFinishManager = FindObjectOfType<LevelFinishManager>();
         levelFinishManager.BuyUpgrade(nameText.text);
+        Debug.Log("Reset Upgrade UI");
+        Setup(myUpgradeData);
     }
 }

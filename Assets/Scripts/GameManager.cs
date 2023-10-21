@@ -6,6 +6,7 @@ using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class GameManager : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject crate;
     private int objectiveSummons = 0;
     private List<ObjectiveStatus> objectStatuses;
-    private int score;
+    private int score = 0;
     private float bonus_time = 0f;
 
     // Start is called before the first frame update
@@ -101,12 +102,26 @@ public class GameManager : MonoBehaviour
     }
 
     private void CheckFinished(){
-        // Check if all objectives are done 
+        // Check if all objectives are done
+        if(GameDetails.levelObjectivesData.ObjectivesComplete() == GameDetails.levelObjectivesData.ObjectivesTotal()){
+            GainScore((int)timeLeft);
+            Continue();
+        }
     }
 
     private void TimeUp(){
         Debug.Log("Times up");
+        GainScore(0);
+        Continue();
+    }
+
+    private void GainScore(int bonus){
+        score += GameDetails.levelObjectivesData.ObjectivesComplete();
+        score += bonus * 5;
+        GameDetails.player_money += score;
+    }
+
+    private void Continue(){
         SceneManager.LoadScene("LevelFinishScene", LoadSceneMode.Single);
-        
     }
 }
