@@ -32,4 +32,9 @@ public class UpgradeUI : MonoBehaviour
         }
 
     }
+
+    public void BuyUpgrade(){
+        LevelFinishManager levelFinishManager = FindObjectOfType<LevelFinishManager>();
+        levelFinishManager.BuyUpgrade(nameText.text);
+    }
 }
