@@ -135,23 +135,15 @@ MonoBehaviour:
   - indicatorLight: {fileID: 6935127000423925803}
     item: 3
     slotType: 0
-    maxItem: 3
-    craftTimer: 0
   - indicatorLight: {fileID: 7961398588428568771}
     item: 2
     slotType: 0
-    maxItem: 3
-    craftTimer: 0
   - indicatorLight: {fileID: 6156572337001022927}
     item: 1
     slotType: 0
-    maxItem: 3
-    craftTimer: 0
   - indicatorLight: {fileID: 2953727378934513135}
     item: 4
     slotType: 1
-    maxItem: 3
-    craftTimer: 7
 --- !u!95 &2774628638173510231
 Animator:
   serializedVersion: 5
@@ -335,7 +327,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8157820309134763406, guid: b5781c798e516834c82ad1ae6d92f28d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.297
+      value: 0.317
       objectReference: {fileID: 0}
     - target: {fileID: 8157820309134763406, guid: b5781c798e516834c82ad1ae6d92f28d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -408,7 +400,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8157820309134763406, guid: b5781c798e516834c82ad1ae6d92f28d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.323
+      value: -0.305
       objectReference: {fileID: 0}
     - target: {fileID: 8157820309134763406, guid: b5781c798e516834c82ad1ae6d92f28d, type: 3}
       propertyPath: m_LocalPosition.y

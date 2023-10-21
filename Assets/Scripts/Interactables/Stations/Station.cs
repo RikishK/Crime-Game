@@ -61,22 +61,82 @@ public class Station : Interactable
 
     }
 
+    public override void Interaction(CharacterController player){
+
+        Debug.Log("Interacting with Bullet_Maker");
+        ItemData.ItemType heldItem = player.GetHeldItem();
+        ItemData.ItemType craftItem = CraftItemType();
+        if(heldItem == ItemData.ItemType.None){
+            if(craftedItems[craftItem] > 0){
+                GiveItem(craftItem, player);
+                updateLights();
+            }
+        }
+        else if(heldItem == craftItem){
+            if(craftedItems[craftItem] > 0){
+                GiveItemTopup(craftItem, player);
+                updateLights();
+            }
+        }
+        else if(validItem(heldItem)){
+            if(ingredients[heldItem] < maxIngredients[heldItem]){
+                Debug.Log($"Taking player item: {heldItem}");
+                int ingredient_space_left = maxIngredients[heldItem] - ingredients[heldItem];
+                int player_ingredient_count = player.CarryCount();
+                int consume_amount = Mathf.Min(ingredient_space_left, player_ingredient_count);
+                ingredients[player.ConsumeItem(consume_amount)] += consume_amount;
+                DebugInventory();
+                updateLights();
+            }
+        }
+    }
+
+    protected virtual ItemData.ItemType CraftItemType(){
+        return ItemData.ItemType.None;
+    }
+
+    protected void TakeIngredient(ItemData.ItemType ingredientType, CharacterController player){
+        int player_ingredient_amount = player.CarryCount();
+        int ingredient_space_left = maxIngredients[ingredientType] - ingredients[ingredientType];
+    }
+
+    protected void GiveItem(ItemData.ItemType itemType, CharacterController player){
+        int give_amount = GiveAmount(itemType, player);
+        player.ReceiveItem(itemType, give_amount);
+        craftedItems[itemType] -= give_amount;
+    }
+
+    protected void GiveItemTopup(ItemData.ItemType itemType, CharacterController player){
+        int give_topup_amount = GiveTopupAmount(itemType, player);
+        player.ReceiveItemTopup(itemType, give_topup_amount);
+        craftedItems[itemType] -= give_topup_amount;
+    }
+
+    protected int GiveTopupAmount(ItemData.ItemType itemType, CharacterController player){
+        int curr_amount = craftedItems[itemType];
+        int player_space_left = player.CarryCapacity() - player.CarryCount();
+        return Mathf.Min(curr_amount, player_space_left);
+    }
+
+    protected int GiveAmount(ItemData.ItemType itemType, CharacterController player){
+        int curr_amount = craftedItems[itemType];
+        int player_carry_capacity = player.CarryCapacity();
+        return Mathf.Min(curr_amount, player_carry_capacity);
+    }
+
     protected virtual int StationIngredientMax()
     {
-        int upgrades_done = UpgradeablesData.bullet_maker_upgradeable.GetUpgradeData("Ingredient Limit").upgrades_done;
-        return 3 + 2*upgrades_done;
+        return 3;
     }
 
     protected virtual int StationCraftedMax()
     {
-        int upgrades_done = UpgradeablesData.bullet_maker_upgradeable.GetUpgradeData("Output Limit").upgrades_done;
-        return 3 + 2*upgrades_done;
+        return 3;
     }
 
     protected virtual float StationCraftTime()
     {
-        float upgrades_done = UpgradeablesData.bullet_maker_upgradeable.GetUpgradeData("Output Limit").upgrades_done;
-        return 7f - 1f*upgrades_done;
+        return 7.0f;
     }
 
     private void Start() {

@@ -11,15 +11,13 @@ public class Crate : Interactable
     private enum CrateState {
         Empty, Empty_Bullet_Shell, Loaded_Bullet_Shell, Packaged
     }
-    public override ItemData.ItemType Interaction(CharacterController player){
+    public override void Interaction(CharacterController player){
 
         Debug.Log("Interacting with Crate");
 
         if(validItem(player.GetHeldItem())){
             handleInteract(player);
         }
-
-        return ItemData.ItemType.None;
 
     }
 
@@ -36,7 +34,7 @@ public class Crate : Interactable
     }
 
     private void handleInteract(CharacterController player){
-        player.ConsumeItem();
+        player.ConsumeItem(1);
         switch(crateState){
             case CrateState.Empty:
                 crateState = CrateState.Empty_Bullet_Shell;
@@ -55,7 +53,7 @@ public class Crate : Interactable
 
     private IEnumerator PackageUp(CharacterController player){
         player.LockPlayer();
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(player.PackageSpeed());
         player.UnlockPlayer();
         crateState = CrateState.Packaged;
         RenderCrate();

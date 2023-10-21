@@ -6,6 +6,8 @@ public class CharacterController : MonoBehaviour
 {
     private float moveSpeed = 5.0f;
     [SerializeField] private CharacterHeldItem heldItem;
+    private int carry_capacity = 1, carry_count = 0;
+    private float package_speed = 5.0f;
     private ItemData.ItemType currentItem;
     private Rigidbody2D rb;
 
@@ -15,6 +17,9 @@ public class CharacterController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         currentItem = new ItemData.ItemType();
+        moveSpeed = 5.0f + 2.0f * UpgradeablesData.player_upgradeable.GetUpgradeData("Move Speed").upgrades_done;
+        carry_capacity = 1 + UpgradeablesData.player_upgradeable.GetUpgradeData("Carry Capacity").upgrades_done;
+        package_speed = 5.0f - 0.5f*UpgradeablesData.player_upgradeable.GetUpgradeData("Package Speed").upgrades_done;
     }
 
     void Update()
@@ -59,25 +64,34 @@ public class CharacterController : MonoBehaviour
             }
 
             if(targetInteractables.Count == 1){
-                holdItem(targetInteractables[0].Interact(this));
+                targetInteractables[0].Interact(this);
                 Debug.Log($"Player has picked up: {currentItem}");
             }
 
         }
     }
 
-    private void holdItem(ItemData.ItemType itemType){
+    public void ReceiveItem(ItemData.ItemType itemType, int amount){
         currentItem = itemType;
+        carry_count = amount;
         heldItem.HoldItem(currentItem);
+    }
+
+    public void ReceiveItemTopup(ItemData.ItemType itemType, int topup_amount){
+        carry_count += topup_amount;
     }
     public ItemData.ItemType GetHeldItem(){
         return currentItem;
     }
 
-    public ItemData.ItemType ConsumeItem(){
-        ItemData.ItemType consumedItem = currentItem;
-        currentItem = ItemData.ItemType.None;
-        return consumedItem;
+    public ItemData.ItemType ConsumeItem(int amount){
+        carry_count -= amount;
+        ItemData.ItemType consumed_item = currentItem;
+        if (carry_count <= 0){
+            currentItem = ItemData.ItemType.None;
+            heldItem.HoldItem(ItemData.ItemType.None);
+        }
+        return consumed_item;
     }
 
     public void LockPlayer(){
@@ -86,5 +100,17 @@ public class CharacterController : MonoBehaviour
 
     public void UnlockPlayer(){
         locked = false;
+    }
+
+    public int CarryCapacity(){
+        return carry_capacity;
+    }
+
+    public int CarryCount(){
+        return carry_count;
+    }
+
+    public float PackageSpeed(){
+        return package_speed;
     }
 }

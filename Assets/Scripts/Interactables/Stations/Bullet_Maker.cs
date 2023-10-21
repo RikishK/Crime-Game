@@ -4,29 +4,9 @@ using UnityEngine;
 
 public class Bullet_Maker : Station
 {
-    public override ItemData.ItemType Interaction(CharacterController player){
-
-        Debug.Log("Interacting with Bullet_Maker");
-        ItemData.ItemType heldItem = player.GetHeldItem();
-
-        if(heldItem == ItemData.ItemType.None){
-            if(craftedItems[ItemData.ItemType.Bullet_Shell] > 0){
-                craftedItems[ItemData.ItemType.Bullet_Shell] -= 1;
-                updateLights();
-                return ItemData.ItemType.Bullet_Shell;
-            }
-        }
-        else if(validItem(heldItem)){
-            if(ingredients[heldItem] < maxIngredients[heldItem]){
-                Debug.Log($"Taking player item: {heldItem}");
-                ingredients[player.ConsumeItem()] += 1;
-                DebugInventory();
-                updateLights();
-            }
-        }
-
-        return ItemData.ItemType.None;
-
+    protected override ItemData.ItemType CraftItemType()
+    {
+        return ItemData.ItemType.Bullet_Shell;
     }
     protected override bool canCraft(){    
         bool c = ingredients[ItemData.ItemType.Metal] > 0;

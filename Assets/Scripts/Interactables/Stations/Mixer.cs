@@ -4,25 +4,9 @@ using UnityEngine;
 
 public class Mixer : Station
 {
-    public override ItemData.ItemType Interaction(CharacterController player){
-        Debug.Log($"Interacting with Mixer");
-        ItemData.ItemType heldItem = player.GetHeldItem();
-        if(heldItem == ItemData.ItemType.None){
-            if(craftedItems[ItemData.ItemType.Gunpowder] > 0){
-                craftedItems[ItemData.ItemType.Gunpowder] -= 1;
-                updateLights();
-                return ItemData.ItemType.Gunpowder;
-            }
-        }
-        else if(validItem(heldItem)){
-            if(ingredients[heldItem] < maxIngredients[heldItem]){
-                Debug.Log($"Taking player item: {heldItem}");
-                ingredients[player.ConsumeItem()] += 1;
-                DebugInventory();
-                updateLights();
-            }
-        }
-        return 0;
+    protected override ItemData.ItemType CraftItemType()
+    {
+        return ItemData.ItemType.Gunpowder;
     }
 
     protected override bool canCraft(){

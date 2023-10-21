@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Slider levelTimerBar;
     [SerializeField] private Image timerBarFill;
     [SerializeField] private Gradient timerBarGradient;
-    private float timeLeft;
+    private float timeLeft = 0;
     [SerializeField] private float levelTimeLimit;
     [SerializeField] private Vector3 startObjectiveLocation;
     [SerializeField] private int objectiveSlotsWidth;
@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     private int objectiveSummons = 0;
     private List<ObjectiveStatus> objectStatuses;
     private int score = 0;
-    private float bonus_time = 0f;
+    private float bonus_time = 0f, initial_time;
 
     // Start is called before the first frame update
     void Start()
@@ -33,13 +33,14 @@ public class GameManager : MonoBehaviour
         levelTimerBar.maxValue = levelTimeLimit;
         levelTimerBar.minValue = timeLeft;
         levelTimerBar.value = levelTimeLimit;
+        initial_time = Time.time;
         SetupObjectives();
     }
 
     // Update is called once per frame
     void Update()
     {
-        timeLeft = levelTimeLimit + bonus_time - Time.time;
+        timeLeft = levelTimeLimit + bonus_time - (Time.time - initial_time);
         levelTimerBar.value = timeLeft;
         timerBarFill.color = timerBarGradient.Evaluate(timeLeft/levelTimeLimit);
         if (timeLeft <= 0) TimeUp();

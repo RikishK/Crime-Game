@@ -44,9 +44,9 @@ public class LevelSelectManager : MonoBehaviour
         UpgradeablesData.Upgradeable player_upgradeable = new UpgradeablesData.Upgradeable();
         player_upgradeable.upgradeable_name = player_name;
         List<UpgradeablesData.UpgradeData> player_upgrades = new List<UpgradeablesData.UpgradeData>();
-        UpgradeablesData.UpgradeData player_speed_upgrade = new UpgradeablesData.UpgradeData("Move Speed", 0, 4, 100);
-        UpgradeablesData.UpgradeData player_carry_capacity_upgrade = new UpgradeablesData.UpgradeData("Carry Capacity", 0, 4, 100);
-        UpgradeablesData.UpgradeData player_package_speed_upgrade = new UpgradeablesData.UpgradeData("Package Speed", 0, 4, 100);
+        UpgradeablesData.UpgradeData player_speed_upgrade = new UpgradeablesData.UpgradeData("Move Speed", 0, 4, 200);
+        UpgradeablesData.UpgradeData player_carry_capacity_upgrade = new UpgradeablesData.UpgradeData("Carry Capacity", 0, 4, 500);
+        UpgradeablesData.UpgradeData player_package_speed_upgrade = new UpgradeablesData.UpgradeData("Package Speed", 0, 4, 300);
         player_upgrades.Add(player_speed_upgrade);
         player_upgrades.Add(player_carry_capacity_upgrade);
         player_upgrades.Add(player_package_speed_upgrade);
