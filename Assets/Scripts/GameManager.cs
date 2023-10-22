@@ -64,16 +64,16 @@ public class GameManager : MonoBehaviour
         //     reqirementsObjectives.Add(levelObjective.objective, levelObjective.count);
         //     for(int i=0; i<levelObjective.count; i++) SummonObjective(levelObjective.objective);
         // }
-        foreach(LevelObjectivesData.LevelObjective levelObjective in GetLevelObjectives()){
+        foreach(LevelObjectivesData.LevelObjective levelObjective in GameDetails.GetLevelObjectives()){
             GameDetails.levelObjectivesData.completedObjectives.Add(levelObjective.objective, 0);
             GameDetails.levelObjectivesData.reqirementsObjectives.Add(levelObjective.objective, levelObjective.count);
             for(int i=0; i<levelObjective.count; i++) SummonObjective(levelObjective.objective);
         }
     }
 
-    private LevelObjectivesData.LevelObjective[] GetLevelObjectives(){
-        return GameDetails.levelObjectivesData.levels.levelObjectiveList[GameDetails.current_level].objectives;
-    }
+    // private LevelObjectivesData.LevelObjective[] GetLevelObjectives(){
+    //     return GameDetails.levelObjectivesData.levels.levelObjectiveList[GameDetails.current_level].objectives;
+    // }
 
     private void SummonObjective(LevelObjectivesData.Objective objective){
         // Summon an objective in a world location at correct slot based on objectiveSummons
