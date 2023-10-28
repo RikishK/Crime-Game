@@ -14,4 +14,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LevelFinishScene.unity
     guid: c6998c4e32aed724f8fc33ccf47fd3ae
+  - enabled: 1
+    path: Assets/Scenes/LevelCountdown.unity
+    guid: 29e67db57132e5c4285cbf5743f5bc89
+  - enabled: 1
+    path: Assets/Scenes/LevelOutcome.unity
+    guid: 57ae07b1c4444db478a656d1b15ac08b
+  - enabled: 1
+    path: Assets/Scenes/StoryIntro.unity
+    guid: b28d9e2532124684da0204580274bd61
   m_configObjects: {}

@@ -21,7 +21,7 @@ public class LevelSelectManager : MonoBehaviour
         GameDetails.levelObjectivesData.ReadLevels(levelsJsonFile);
 
 
-        SceneManager.LoadScene("LevelCountdown", LoadSceneMode.Single);
+        Continue();
     }
 
     private UpgradeablesData.Upgradeable SetupStation(string station_name){
@@ -52,5 +52,9 @@ public class LevelSelectManager : MonoBehaviour
         player_upgrades.Add(player_package_speed_upgrade);
         player_upgradeable.upgradesData = player_upgrades;
         return player_upgradeable;
+    }
+
+    private void Continue(){
+        SceneManager.LoadScene("StoryIntro", LoadSceneMode.Single);
     }
 }

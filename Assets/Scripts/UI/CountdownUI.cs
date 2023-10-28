@@ -1,14 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CountdownUI : MonoBehaviour
 {
-    [SerializeField] GameObject[] countdown_objective_objects;
-    [SerializeField] Sprite Ammo_Crate_Icon;
+    [SerializeField] private GameObject[] countdown_objective_objects;
+    [SerializeField] private Sprite Ammo_Crate_Icon;
+    [SerializeField] private TextMeshProUGUI countdown_timer_text;
+
     
     private void Start() {
         Setup();
+        StartCoroutine(Countdown(5));
     }
     public void Setup(){
         LevelObjectivesData.LevelObjective[] level_objectives = GameDetails.GetLevelObjectives();
@@ -32,5 +38,17 @@ public class CountdownUI : MonoBehaviour
                 return Ammo_Crate_Icon;
         }
         return null;
+    }
+
+    private IEnumerator Countdown(int count){
+        countdown_timer_text.text = count.ToString();
+        yield return new WaitForSeconds(1f);
+        count--;
+        if(count == 0){
+            SceneManager.LoadScene("PlayScene", LoadSceneMode.Single);
+        }
+        else{
+            StartCoroutine(Countdown(count));
+        }
     }
 }

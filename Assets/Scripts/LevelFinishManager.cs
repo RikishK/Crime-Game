@@ -53,6 +53,6 @@ public class LevelFinishManager : MonoBehaviour
 
     public void Continue(){
         GameDetails.current_level++;
-        SceneManager.LoadScene("PlayScene", LoadSceneMode.Single);
+        SceneManager.LoadScene("LevelCountdown", LoadSceneMode.Single);
     }
 }

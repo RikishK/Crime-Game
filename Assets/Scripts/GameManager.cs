@@ -105,7 +105,7 @@ public class GameManager : MonoBehaviour
     private void CheckFinished(){
         // Check if all objectives are done
         if(GameDetails.levelObjectivesData.ObjectivesComplete() == GameDetails.levelObjectivesData.ObjectivesTotal()){
-            GainScore((int)timeLeft);
+            GainScore((int)timeLeft + 100);
             Continue();
         }
     }
@@ -117,12 +117,13 @@ public class GameManager : MonoBehaviour
     }
 
     private void GainScore(int bonus){
-        score += GameDetails.levelObjectivesData.ObjectivesComplete();
+        score += 30 * GameDetails.levelObjectivesData.ObjectivesComplete();
         score += bonus * 5;
         GameDetails.player_money += score;
+        
     }
 
     private void Continue(){
-        SceneManager.LoadScene("LevelFinishScene", LoadSceneMode.Single);
+        SceneManager.LoadScene("LevelOutcome", LoadSceneMode.Single);
     }
 }

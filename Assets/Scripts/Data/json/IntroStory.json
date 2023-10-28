@@ -1,0 +1,69 @@
+{
+    "script": [
+        {
+            "talker_name": "Marlo",
+            "message": "Listen kid, what you did cost us a lot of damn money alright.",
+            "isLeftTalker": "False"
+        },
+        {
+            "talker_name": "Bob",
+            "message": "...",
+            "isLeftTalker": "True"
+        },
+        {
+            "talker_name": "Marlo",
+            "message": "Nothing to say huh? Guess you're too young for some wit.",
+            "isLeftTalker": "False"
+        },
+        {
+            "talker_name": "Bob",
+            "message": "...",
+            "isLeftTalker": "True"
+        },
+        {
+            "talker_name": "Marlo",
+            "message": "Anyway anyway, you need to make up for what you did okay. From today youll be preparing some goods for us.",
+            "isLeftTalker": "False"
+        },
+        {
+            "talker_name": "Bob",
+            "message": "...",
+            "isLeftTalker": "True"
+        },
+        {
+            "talker_name": "Marlo",
+            "message": "For now get some ammunition ready for my boys, if you cant get it ready... well I'm sure you know",
+            "isLeftTalker": "False"
+        },
+        {
+            "talker_name": "Bob",
+            "message": "...",
+            "isLeftTalker": "True"
+        },
+        {
+            "talker_name": "Marlo",
+            "message": "Can't tell if you're stupid or brave kid! Hahaha!",
+            "isLeftTalker": "False"
+        },
+        {
+            "talker_name": "Marlo",
+            "message": "Just mix the SULFUR, NITRATE, and CHARCOAL together in the MIXER to make GUNPOWDER",
+            "isLeftTalker": "False"
+        },
+        {
+            "talker_name": "Marlo",
+            "message": "While you're doing that chuck some METAL into the BULLET MAKER and it'll get some BULLET SHELLS ready for yah.",
+            "isLeftTalker": "False"
+        },
+        {
+            "talker_name": "Marlo",
+            "message": "Fill them up and get those crates packaged alright!",
+            "isLeftTalker": "False"
+        },
+        {
+            "talker_name": "Marlo",
+            "message": "Good luck kid, you'll be doing this till your debt is paid off.",
+            "isLeftTalker": "False"
+        }
+    ]
+}

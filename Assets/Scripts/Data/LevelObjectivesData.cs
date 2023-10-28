@@ -30,9 +30,7 @@ public class LevelObjectivesData
 
     public void ReadLevels(TextAsset levelJson){
         levels = JsonUtility.FromJson<Levels>(levelJson.text);
-        Debug.Log("Reading --------------------");
-        foreach(LevelObjectiveList list in levels.levelObjectiveList)
-        Debug.Log("-----------------------");
+        
     }
 
     public int ObjectivesComplete(){
