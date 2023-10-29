@@ -15,17 +15,17 @@ public class LevelObjectivesData
 
     [System.Serializable]
     public enum Objective{
-        Ammo_Crate
+        Ammo_Crate, Explosive_Crate
     }
 
     [System.Serializable]
     public class LevelObjectiveList{
-        public LevelObjective[] objectives;
+        public List<LevelObjective> objectives;
     }
 
     [System.Serializable]
     public class Levels{
-        public LevelObjectiveList[] levelObjectiveList;
+        public List<LevelObjectiveList> levelObjectiveList;
     }
 
     public void ReadLevels(TextAsset levelJson){

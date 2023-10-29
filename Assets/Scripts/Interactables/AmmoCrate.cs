@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Crate : Interactable
+public class AmmoCrate : Interactable
 {
     private CrateState crateState = CrateState.Empty;
     [SerializeField] private SpriteRenderer crateRenderer;
@@ -51,6 +51,11 @@ public class Crate : Interactable
         
     }
 
+    private IEnumerator Finish(){
+        yield return new WaitForSeconds(2f);
+        Destroy(gameObject);
+    }
+
     private IEnumerator PackageUp(CharacterController player){
         player.LockPlayer();
         yield return new WaitForSeconds(player.PackageSpeed());
@@ -58,6 +63,7 @@ public class Crate : Interactable
         crateState = CrateState.Packaged;
         RenderCrate();
         objectiveStatus.Complete();
+        StartCoroutine(Finish());
     }
 
     private void RenderCrate(){

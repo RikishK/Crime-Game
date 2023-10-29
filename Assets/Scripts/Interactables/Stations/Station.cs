@@ -96,6 +96,7 @@ public class Station : Interactable
     }
 
     protected void TakeIngredient(ItemData.ItemType ingredientType, CharacterController player){
+        Debug.Log("TAKING");
         int player_ingredient_amount = player.CarryCount();
         int ingredient_space_left = maxIngredients[ingredientType] - ingredients[ingredientType];
     }
@@ -178,6 +179,10 @@ public class Station : Interactable
         foreach(KeyValuePair<ItemData.ItemType, int> craftedData in craftedItems){
             itemIndicatorsDictionary[craftedData.Key].updateLight(craftedData.Value, maxCraftedItems[craftedData.Key]);
         }
+    }
+
+    protected virtual void UpdateImage(){
+        // 
     }
 
     protected virtual bool canCraft(){

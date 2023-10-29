@@ -5,6 +5,7 @@ using UnityEngine;
 public class ItemData
 {
     public enum ItemType {
-        None, Charcoal, Nitrate, Sulfur, Gunpowder, Metal, Bullet_Shell
+        None, Charcoal, Nitrate, Sulfur, Gunpowder,
+        Metal, Bullet_Shell, Sulfuric_Acid, Nitric_Acid, Nitrating_Mixture
     }
 }

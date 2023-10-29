@@ -7,6 +7,11 @@ public static class UpgradeablesData
     public static Upgradeable mixer_upgradeable;
     public static Upgradeable bullet_maker_upgradeable;
 
+    public static Upgradeable sulfur_boiler_upgradeable;
+    public static Upgradeable nitrate_boiler_upgradeable;
+
+    public static Upgradeable chemical_mixer_upgradeable;
+
     public static Upgradeable player_upgradeable;
 
     public class Upgradeable {

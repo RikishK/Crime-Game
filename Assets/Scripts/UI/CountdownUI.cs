@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class CountdownUI : MonoBehaviour
 {
     [SerializeField] private GameObject[] countdown_objective_objects;
-    [SerializeField] private Sprite Ammo_Crate_Icon;
+    [SerializeField] private Sprite Ammo_Crate_Icon, Explosive_Crate_Icon;
     [SerializeField] private TextMeshProUGUI countdown_timer_text;
 
     
@@ -17,9 +17,9 @@ public class CountdownUI : MonoBehaviour
         StartCoroutine(Countdown(5));
     }
     public void Setup(){
-        LevelObjectivesData.LevelObjective[] level_objectives = GameDetails.GetLevelObjectives();
+        List<LevelObjectivesData.LevelObjective> level_objectives = GameDetails.GetLevelObjectives();
         for(int i=0; i<10; i++){
-            if(i >= level_objectives.Length){
+            if(i >= level_objectives.Count){
                 countdown_objective_objects[i].SetActive(false);
                 continue;
             }
@@ -36,6 +36,8 @@ public class CountdownUI : MonoBehaviour
         switch(objective){
             case LevelObjectivesData.Objective.Ammo_Crate:
                 return Ammo_Crate_Icon;
+            case LevelObjectivesData.Objective.Explosive_Crate:
+                return Explosive_Crate_Icon;
         }
         return null;
     }
@@ -45,7 +47,11 @@ public class CountdownUI : MonoBehaviour
         yield return new WaitForSeconds(1f);
         count--;
         if(count == 0){
-            SceneManager.LoadScene("PlayScene", LoadSceneMode.Single);
+            // if(GameDetails.current_level > 2){
+            //     SceneManager.LoadScene("PlaySecondScene", LoadSceneMode.Single);
+            // }
+            // else SceneManager.LoadScene("PlayScene", LoadSceneMode.Single);
+            SceneManager.LoadScene("PlaySecondScene", LoadSceneMode.Single);
         }
         else{
             StartCoroutine(Countdown(count));

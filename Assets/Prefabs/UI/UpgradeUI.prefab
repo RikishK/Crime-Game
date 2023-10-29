@@ -420,7 +420,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameText: {fileID: 3253779664682793783}
   buttonText: {fileID: 3253779664918947606}
-  upgradeIndicatorsLayout: {fileID: 0}
+  upgradeIndicatorsLayout: {fileID: 6286034180350646742}
   upgradedIndicator: {fileID: -57279308, guid: 18c032815fd4b184ab8604cc9d715c77, type: 3}
   availableUpgradeIndicator: {fileID: 798081842, guid: 18c032815fd4b184ab8604cc9d715c77, type: 3}
   upgradeIndicatorSlots:

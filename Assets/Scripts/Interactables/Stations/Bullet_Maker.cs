@@ -35,7 +35,7 @@ public class Bullet_Maker : Station
 
     protected override float StationCraftTime()
     {
-        float upgrades_done = UpgradeablesData.bullet_maker_upgradeable.GetUpgradeData("Output Limit").upgrades_done;
+        float upgrades_done = UpgradeablesData.bullet_maker_upgradeable.GetUpgradeData("Crafting Speed").upgrades_done;
         return 7f - 1f*upgrades_done;
     }
     

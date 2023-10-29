@@ -42,3 +42,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Upgradeables
+    uniqueID: 4085573273
+    locked: 0

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6990758263828597270}
   - component: {fileID: 4127912964005228483}
   - component: {fileID: 4952723713937455320}
-  - component: {fileID: 2040360291171579321}
+  - component: {fileID: 2231471555303154367}
   m_Layer: 0
   m_Name: Bullet_Maker Upgradeable
   m_TagString: Interactable
@@ -73,8 +73,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -209394023
+  m_SortingLayer: 1
   m_SortingOrder: 5
   m_Sprite: {fileID: -774948267, guid: babadddd50cbaf642a0fee615f38b25f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -133,7 +133,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &2040360291171579321
+--- !u!114 &2231471555303154367
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,8 +142,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7305253255611396533}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5ee30ebcd2913f49b14fa4098f8ed3c, type: 3}
+  m_Script: {fileID: 11500000, guid: 7199a4dd3db0f4a499e4f407f495980d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 4127912964005228483}
   upgradeable_name: Bullet Maker

@@ -13,6 +13,17 @@ public class LevelSelectManager : MonoBehaviour
         // Setup bullet_maker upgradeable data
         UpgradeablesData.bullet_maker_upgradeable = SetupStation("bullet_maker");
 
+        // Setup sulfur boiler 
+        UpgradeablesData.sulfur_boiler_upgradeable = SetupStation("sulfur_boiler");
+
+        // Setup Nitrate boiler
+        UpgradeablesData.nitrate_boiler_upgradeable = SetupStation("nitrate_boiler");
+
+        // Setup Chemical Mixer
+        UpgradeablesData.chemical_mixer_upgradeable = SetupStation("chemical_mixer");
+
+
+
         // Setup player upgradeable data
         UpgradeablesData.player_upgradeable = SetupPlayer();
 
@@ -55,6 +66,7 @@ public class LevelSelectManager : MonoBehaviour
     }
 
     private void Continue(){
-        SceneManager.LoadScene("StoryIntro", LoadSceneMode.Single);
+        //SceneManager.LoadScene("StoryIntro", LoadSceneMode.Single);
+        SceneManager.LoadScene("LevelCountdown", LoadSceneMode.Single);
     }
 }

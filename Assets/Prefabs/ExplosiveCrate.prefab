@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2315832033267827891
+--- !u!1 &2329133484788549005
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,38 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1134298685175096460}
-  - component: {fileID: 5508731752268784822}
-  - component: {fileID: 7543957712274988488}
+  - component: {fileID: 1808556702562934492}
+  - component: {fileID: 1295280769033620256}
+  - component: {fileID: 2538150345763619786}
+  - component: {fileID: 4150574446943793147}
+  - component: {fileID: 2454175072087296295}
   m_Layer: 0
-  m_Name: Sulfur Box Upgradeable
+  m_Name: ExplosiveCrate
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1134298685175096460
+--- !u!4 &1808556702562934492
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2315832033267827891}
+  m_GameObject: {fileID: 2329133484788549005}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.63, y: -4.5, z: 0}
+  m_LocalPosition: {x: 15.798237, y: -1.2545668, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &5508731752268784822
+--- !u!212 &1295280769033620256
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2315832033267827891}
+  m_GameObject: {fileID: 2329133484788549005}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -71,10 +73,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -209394023
-  m_SortingLayer: 1
-  m_SortingOrder: 5
-  m_Sprite: {fileID: 1686809701, guid: babadddd50cbaf642a0fee615f38b25f, type: 3}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 50
+  m_Sprite: {fileID: 1789565720, guid: 92048205ad870bf4bad1f187f4cde4a7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -85,14 +87,14 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &7543957712274988488
+--- !u!61 &2538150345763619786
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2315832033267827891}
-  m_Enabled: 0
+  m_GameObject: {fileID: 2329133484788549005}
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -111,3 +113,39 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &4150574446943793147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2329133484788549005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15b2d50a7d4fd3f4693610b9d15d80ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crateRenderer: {fileID: 1295280769033620256}
+  emptyCrate: {fileID: 1789565720, guid: 92048205ad870bf4bad1f187f4cde4a7, type: 3}
+  gunpowder_filled_crate: {fileID: 306079389, guid: 92048205ad870bf4bad1f187f4cde4a7, type: 3}
+  nitrated_gunpowder_crate: {fileID: 22957085, guid: 92048205ad870bf4bad1f187f4cde4a7, type: 3}
+  explosive_wrapped_crate: {fileID: 231293853, guid: 92048205ad870bf4bad1f187f4cde4a7, type: 3}
+  packaged_crate: {fileID: 1505424199, guid: 92048205ad870bf4bad1f187f4cde4a7, type: 3}
+  objectiveStatus: {fileID: 0}
+--- !u!114 &2454175072087296295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2329133484788549005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5b4a1a998f6a744f9d75836da723188, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  completed: 0
+  points: 80
+  time_value: 25
+  objective: 1
+  gameManager: {fileID: 0}

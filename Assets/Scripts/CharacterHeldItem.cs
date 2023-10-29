@@ -5,7 +5,7 @@ using UnityEngine;
 public class CharacterHeldItem : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer heldItemRenderer;
-    [SerializeField] private Sprite Charcoal, Sulfur, Nitrate, Gunpowder, Metal, Bullet_Shell;
+    [SerializeField] private Sprite Charcoal, Sulfur, Nitrate, Gunpowder, Metal, Bullet_Shell, Sulfuric_Acid, Nitric_Acid;
     
     public void HoldItem(ItemData.ItemType itemType){
         switch(itemType){
@@ -30,6 +30,13 @@ public class CharacterHeldItem : MonoBehaviour
             case ItemData.ItemType.Bullet_Shell:
                 heldItemRenderer.sprite = Bullet_Shell;
                 break;
+            case ItemData.ItemType.Sulfuric_Acid:
+                heldItemRenderer.sprite = Sulfuric_Acid;
+                break;
+            case ItemData.ItemType.Nitric_Acid:
+                heldItemRenderer.sprite = Nitric_Acid;
+                break;
         }
     }
+    
 }

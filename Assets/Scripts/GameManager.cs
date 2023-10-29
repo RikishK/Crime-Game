@@ -18,10 +18,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Vector3 startObjectiveLocation;
     [SerializeField] private int objectiveSlotsWidth;
 
-    //private LevelObjectivesData.LevelObjective[] levelObjectives;
-    //private Dictionary<LevelObjectivesData.LevelObjective.Objective, int> completedObjectives, reqirementsObjectives;
     
-    [SerializeField] private GameObject crate;
+    [SerializeField] private GameObject ammo_crate, explosive_crate;
     private int objectiveSummons = 0;
     private List<ObjectiveStatus> objectStatuses;
     private int score = 0;
@@ -46,34 +44,17 @@ public class GameManager : MonoBehaviour
         if (timeLeft <= 0) TimeUp();
     }
 
-    // [Serializable]
-    // private class LevelObjective {
-    //     public Objective objective;
-    //     public int count;
-    //     public enum Objective{
-    //         Ammo_Crate
-    //     }
-    // }
-
     private void SetupObjectives(){
         GameDetails.levelObjectivesData.completedObjectives = new Dictionary<LevelObjectivesData.Objective, int>();
         GameDetails.levelObjectivesData.reqirementsObjectives = new Dictionary<LevelObjectivesData.Objective, int>();
         objectStatuses = new List<ObjectiveStatus>();
-        // foreach(LevelObjectivesData.LevelObjective levelObjective in levelObjectives){
-        //     completedObjectives.Add(levelObjective.objective, 0);
-        //     reqirementsObjectives.Add(levelObjective.objective, levelObjective.count);
-        //     for(int i=0; i<levelObjective.count; i++) SummonObjective(levelObjective.objective);
-        // }
+        
         foreach(LevelObjectivesData.LevelObjective levelObjective in GameDetails.GetLevelObjectives()){
             GameDetails.levelObjectivesData.completedObjectives.Add(levelObjective.objective, 0);
             GameDetails.levelObjectivesData.reqirementsObjectives.Add(levelObjective.objective, levelObjective.count);
             for(int i=0; i<levelObjective.count; i++) SummonObjective(levelObjective.objective);
         }
     }
-
-    // private LevelObjectivesData.LevelObjective[] GetLevelObjectives(){
-    //     return GameDetails.levelObjectivesData.levels.levelObjectiveList[GameDetails.current_level].objectives;
-    // }
 
     private void SummonObjective(LevelObjectivesData.Objective objective){
         // Summon an objective in a world location at correct slot based on objectiveSummons
@@ -91,7 +72,14 @@ public class GameManager : MonoBehaviour
     }
 
     private GameObject ObjectivePrefab(LevelObjectivesData.Objective objective){
-        if(objective == LevelObjectivesData.Objective.Ammo_Crate) return crate;
+        if(objective == LevelObjectivesData.Objective.Ammo_Crate) return ammo_crate;
+
+        switch(objective){
+            case LevelObjectivesData.Objective.Ammo_Crate:
+                return ammo_crate;
+            case LevelObjectivesData.Objective.Explosive_Crate:
+                return explosive_crate;
+        }
         return null;
     }
 

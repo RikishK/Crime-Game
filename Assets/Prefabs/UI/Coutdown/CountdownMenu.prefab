@@ -271,6 +271,7 @@ MonoBehaviour:
   - {fileID: 3221697275860569582}
   - {fileID: 1936683479849028420}
   Ammo_Crate_Icon: {fileID: 1840071789, guid: babadddd50cbaf642a0fee615f38b25f, type: 3}
+  Explosive_Crate_Icon: {fileID: 1505424199, guid: 92048205ad870bf4bad1f187f4cde4a7, type: 3}
   countdown_timer_text: {fileID: 8538049884156234056}
 --- !u!1001 &807568120505946382
 PrefabInstance:

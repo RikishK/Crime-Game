@@ -69,6 +69,11 @@ public class CharacterController : MonoBehaviour
             }
 
         }
+
+        if (Input.GetKeyDown(KeyCode.Q)){
+            currentItem = ItemData.ItemType.None;
+            heldItem.HoldItem(ItemData.ItemType.None);
+        }
     }
 
     public void ReceiveItem(ItemData.ItemType itemType, int amount){

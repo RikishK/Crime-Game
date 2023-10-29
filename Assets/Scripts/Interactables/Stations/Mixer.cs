@@ -10,7 +10,7 @@ public class Mixer : Station
     }
 
     protected override bool canCraft(){
-        bool c = (ingredients[ItemData.ItemType.Charcoal] > 0 && ingredients[ItemData.ItemType.Nitrate] > 0 && ingredients[ItemData.ItemType.Sulfur] > 0);
+        bool c = ingredients[ItemData.ItemType.Charcoal] > 0 && ingredients[ItemData.ItemType.Nitrate] > 0 && ingredients[ItemData.ItemType.Sulfur] > 0;
         bool v = craftedItems[ItemData.ItemType.Gunpowder] < maxCraftedItems[ItemData.ItemType.Gunpowder] && !currentlyCrafting;
         return c && v;
     }
@@ -37,7 +37,7 @@ public class Mixer : Station
 
     protected override float StationCraftTime()
     {
-        float upgrades_done = UpgradeablesData.mixer_upgradeable.GetUpgradeData("Output Limit").upgrades_done;
+        float upgrades_done = UpgradeablesData.mixer_upgradeable.GetUpgradeData("Crafting Speed").upgrades_done;
         return 7f - 1f*upgrades_done;
     }
 }

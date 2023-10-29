@@ -3,7 +3,11 @@
         {
             "objectives": [
                 {
-                    "objective": "Ammo_Crate",
+                    "objective": 0,
+                    "count": 2
+                },
+                {
+                    "objective": 1,
                     "count": 2
                 }
             ]
@@ -11,7 +15,7 @@
         {
             "objectives": [
                 {
-                    "objective": "Ammo_Crate",
+                    "objective": 0,
                     "count": 4
                 }
             ]
@@ -19,10 +23,47 @@
         {
             "objectives": [
                 {
-                    "objective": "Ammo_Crate",
+                    "objective": 0,
+                    "count": 6
+                }
+            ]
+        },
+        {
+            "objectives": [
+                {
+                    "objective": 0,
+                    "count": 1
+                },
+                {
+                    "objective": 1,
+                    "count": 2
+                }
+            ]
+        },
+        {
+            "objectives": [
+                {
+                    "objective": 0,
+                    "count": 3
+                },
+                {
+                    "objective": 1,
+                    "count": 3
+                }
+            ]
+        },
+        {
+            "objectives": [
+                {
+                    "objective": 0,
+                    "count": 4
+                },
+                {
+                    "objective": 1,
                     "count": 6
                 }
             ]
         }
+        
     ]
 }

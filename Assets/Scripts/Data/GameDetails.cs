@@ -16,7 +16,7 @@ public static class GameDetails
 
     public static LevelObjectivesData levelObjectivesData;
 
-    public static LevelObjectivesData.LevelObjective[] GetLevelObjectives(){
+    public static List<LevelObjectivesData.LevelObjective> GetLevelObjectives(){
         return levelObjectivesData.levels.levelObjectiveList[current_level].objectives;
     }
 }
