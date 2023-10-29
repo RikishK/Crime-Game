@@ -43,15 +43,15 @@ public class CountdownUI : MonoBehaviour
     }
 
     private IEnumerator Countdown(int count){
-        countdown_timer_text.text = count.ToString();
+        countdown_timer_text.text = "Level " + (GameDetails.current_level+1).ToString() + ": " + count.ToString();
         yield return new WaitForSeconds(1f);
         count--;
         if(count == 0){
-            // if(GameDetails.current_level > 2){
-            //     SceneManager.LoadScene("PlaySecondScene", LoadSceneMode.Single);
-            // }
-            // else SceneManager.LoadScene("PlayScene", LoadSceneMode.Single);
-            SceneManager.LoadScene("PlaySecondScene", LoadSceneMode.Single);
+            if(GameDetails.current_level > 2){
+                SceneManager.LoadScene("PlaySecondScene", LoadSceneMode.Single);
+            }
+            else SceneManager.LoadScene("PlayScene", LoadSceneMode.Single);
+            // SceneManager.LoadScene("PlaySecondScene", LoadSceneMode.Single);
         }
         else{
             StartCoroutine(Countdown(count));

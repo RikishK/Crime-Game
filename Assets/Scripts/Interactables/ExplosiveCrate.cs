@@ -71,9 +71,8 @@ public class ExplosiveCrate : Interactable
         player.LockPlayer();
         yield return new WaitForSeconds(player.PackageSpeed());
         player.UnlockPlayer();
-        crateState = CrateState.Packaged;
+        crateState = CrateState.Wrapped;
         RenderCrate();
-        objectiveStatus.Complete();
     }
 
     private IEnumerator Finish(){

@@ -16,8 +16,8 @@ public class LevelOutcomeUI : MonoBehaviour
     }
 
     private void Setup() {
-        if(GameDetails.objectives_complete == GameDetails.objectives_total){
-            outcome_text.text = "Level Complete";
+        if(GameDetails.levelObjectivesData.ObjectivesComplete() == GameDetails.levelObjectivesData.ObjectivesTotal()){
+            outcome_text.text = "Level " + GameDetails.current_level + " Complete";
             outcome_text.color = Color.green;
         }
         else{
@@ -25,11 +25,12 @@ public class LevelOutcomeUI : MonoBehaviour
             outcome_text.color = Color.red;
         }
 
-        score_text.text = GameDetails.objectives_complete.ToString() + "/" + GameDetails.objectives_total.ToString();
+        score_text.text = GameDetails.levelObjectivesData.ObjectivesComplete().ToString() + "/" + GameDetails.levelObjectivesData.ObjectivesTotal().ToString();
     }
 
     private IEnumerator Continue(){
         yield return new WaitForSeconds(7f);
-        SceneManager.LoadScene("LevelFinishScene", LoadSceneMode.Single);
+        if (GameDetails.current_level >= 5) SceneManager.LoadScene("StoryEnd", LoadSceneMode.Single);
+        else SceneManager.LoadScene("LevelFinishScene", LoadSceneMode.Single);
     }
 }

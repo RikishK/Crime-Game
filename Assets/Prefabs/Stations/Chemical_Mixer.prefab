@@ -114,6 +114,10 @@ MonoBehaviour:
   - indicatorLight: {fileID: 585596162529408722}
     item: 9
     slotType: 1
+  chemical_mixer_image: {fileID: 3095189923896689013}
+  sulfuric_acid_filled: {fileID: -43065174, guid: 92048205ad870bf4bad1f187f4cde4a7, type: 3}
+  nitric_acid_filled: {fileID: -1763974778, guid: 92048205ad870bf4bad1f187f4cde4a7, type: 3}
+  empty: {fileID: -2008975790, guid: 92048205ad870bf4bad1f187f4cde4a7, type: 3}
 --- !u!61 &3835622479596849472
 BoxCollider2D:
   m_ObjectHideFlags: 0

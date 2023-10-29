@@ -66,7 +66,7 @@ public class LevelSelectManager : MonoBehaviour
     }
 
     private void Continue(){
-        //SceneManager.LoadScene("StoryIntro", LoadSceneMode.Single);
-        SceneManager.LoadScene("LevelCountdown", LoadSceneMode.Single);
+        SceneManager.LoadScene("StoryIntro", LoadSceneMode.Single);
+        //SceneManager.LoadScene("LevelCountdown", LoadSceneMode.Single);
     }
 }

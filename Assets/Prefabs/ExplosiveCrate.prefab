@@ -131,7 +131,7 @@ MonoBehaviour:
   nitrated_gunpowder_crate: {fileID: 22957085, guid: 92048205ad870bf4bad1f187f4cde4a7, type: 3}
   explosive_wrapped_crate: {fileID: 231293853, guid: 92048205ad870bf4bad1f187f4cde4a7, type: 3}
   packaged_crate: {fileID: 1505424199, guid: 92048205ad870bf4bad1f187f4cde4a7, type: 3}
-  objectiveStatus: {fileID: 0}
+  objectiveStatus: {fileID: 2454175072087296295}
 --- !u!114 &2454175072087296295
 MonoBehaviour:
   m_ObjectHideFlags: 0

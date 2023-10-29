@@ -1,0 +1,24 @@
+{
+    "script": [
+        {
+            "talker_name": "Marlo",
+            "message": "Good job kid, you can go for now",
+            "isLeftTalker": "False"
+        },
+        {
+            "talker_name": "Bob",
+            "message": "...",
+            "isLeftTalker": "True"
+        },
+        {
+            "talker_name": "Marlo",
+            "message": "But remember youre involved in this forever now",
+            "isLeftTalker": "False"
+        },
+        {
+            "talker_name": "Bob",
+            "message": "...",
+            "isLeftTalker": "True"
+        }
+    ]
+}

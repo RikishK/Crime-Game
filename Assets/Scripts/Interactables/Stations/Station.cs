@@ -179,10 +179,11 @@ public class Station : Interactable
         foreach(KeyValuePair<ItemData.ItemType, int> craftedData in craftedItems){
             itemIndicatorsDictionary[craftedData.Key].updateLight(craftedData.Value, maxCraftedItems[craftedData.Key]);
         }
+        UpdateImage();
     }
 
     protected virtual void UpdateImage(){
-        // 
+        // Do nothing for all stations except for Chemical mixer
     }
 
     protected virtual bool canCraft(){

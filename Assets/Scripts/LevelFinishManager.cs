@@ -52,7 +52,8 @@ public class LevelFinishManager : MonoBehaviour
     }
 
     public void Continue(){
-        GameDetails.current_level++;
-        SceneManager.LoadScene("LevelCountdown", LoadSceneMode.Single);
+        if (GameDetails.levelObjectivesData.ObjectivesComplete() == GameDetails.levelObjectivesData.ObjectivesTotal()) GameDetails.current_level++;
+        if(GameDetails.current_level == 3) SceneManager.LoadScene("StoryMid", LoadSceneMode.Single);
+        else SceneManager.LoadScene("LevelCountdown", LoadSceneMode.Single);
     }
 }

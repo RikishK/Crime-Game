@@ -67,6 +67,6 @@ public class StoryReader : MonoBehaviour
     }
 
     private void Continue(){
-        SceneManager.LoadScene("LevelCountdown", LoadSceneMode.Single);
+        if(GameDetails.current_level < 5) SceneManager.LoadScene("LevelCountdown", LoadSceneMode.Single);
     }
 }

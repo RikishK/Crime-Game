@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Chemical_Mixer : Station
 {
+    [SerializeField] private SpriteRenderer chemical_mixer_image;
+    [SerializeField] private Sprite sulfuric_acid_filled, nitric_acid_filled, empty;
     protected override ItemData.ItemType CraftItemType()
     {
         return ItemData.ItemType.Nitrating_Mixture;
@@ -38,5 +41,21 @@ public class Chemical_Mixer : Station
     {
         float upgrades_done = UpgradeablesData.chemical_mixer_upgradeable.GetUpgradeData("Crafting Speed").upgrades_done;
         return 7f - 1f*upgrades_done;
+    }
+
+    protected override void UpdateImage(){
+        Debug.Log("quack quack");
+        if(ingredients[ItemData.ItemType.Sulfuric_Acid] > 0){
+            Debug.Log("Filled with sulfuric acid");
+            chemical_mixer_image.sprite = sulfuric_acid_filled;
+        } 
+        else if(ingredients[ItemData.ItemType.Nitric_Acid] > 0){
+            Debug.Log("Filled with nitric acid");
+            chemical_mixer_image.sprite = nitric_acid_filled;
+        }
+        else{
+            Debug.Log("Empty Chemical Mixer");
+            chemical_mixer_image.sprite = empty; 
+        }
     }
 }

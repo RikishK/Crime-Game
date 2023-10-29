@@ -1,0 +1,44 @@
+{
+    "script": [
+        {
+            "talker_name": "Marlo",
+            "message": "Doing Great Kid!",
+            "isLeftTalker": "False"
+        },
+        {
+            "talker_name": "Bob",
+            "message": "...",
+            "isLeftTalker": "True"
+        },
+        {
+            "talker_name": "Marlo",
+            "message": "But my boys need some explosives for uuhh... mining",
+            "isLeftTalker": "False"
+        },
+        {
+            "talker_name": "Bob",
+            "message": "...",
+            "isLeftTalker": "True"
+        },
+        {
+            "talker_name": "Marlo",
+            "message": "Yeah you dont care huh, just get my crates ready kid",
+            "isLeftTalker": "False"
+        },
+        {
+            "talker_name": "Marlo",
+            "message": "Put the SULFUR in the SULFUR BOILER and the NITRATE in the NITRATE BOILER",
+            "isLeftTalker": "False"
+        },
+        {
+            "talker_name": "Marlo",
+            "message": "Then grab the resulting ACIDS and put them in the CHEMICAL MIXER to get NITRATING MIXTURE",
+            "isLeftTalker": "False"
+        },
+        {
+            "talker_name": "Marlo",
+            "message": "Get my explosives ready by putting in GUNPOWDER first then the NITRATING MIXTURE and wrap it them up and seal the crate",
+            "isLeftTalker": "False"
+        }
+    ]
+}

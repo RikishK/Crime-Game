@@ -265,3 +265,4 @@ MonoBehaviour:
   Bullet_Shell: {fileID: 1361673628, guid: 952a9ae103c36f64cb02f26bf0f3d7a0, type: 3}
   Sulfuric_Acid: {fileID: -1882190645, guid: 92048205ad870bf4bad1f187f4cde4a7, type: 3}
   Nitric_Acid: {fileID: -1834241333, guid: 92048205ad870bf4bad1f187f4cde4a7, type: 3}
+  Nitrating_Mixture: {fileID: 128590340, guid: 92048205ad870bf4bad1f187f4cde4a7, type: 3}
